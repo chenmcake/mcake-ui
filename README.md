@@ -6,11 +6,11 @@
 
 ### Install Mcake UI
 
-通过npm 使用
+通过npm 安装
 ```
 npm install mcake-ui --save
 ```
-通过script标签 使用
+通过script标签 安装
 ```html
 <script type="text/javascript" src="mcake-ui.min.js"></script>
 ```
