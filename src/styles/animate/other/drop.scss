@@ -1,0 +1,30 @@
+// 开始时和结束后
+.m-fade-enter,
+.m-fade-leave-to {
+    opacity: 0;
+}
+// 制作动画类
+@include make-animate("drop");
+
+// 进入动画
+@keyframes m-drop-in {
+    0% {
+        opacity: 0;
+        transform: scaleY(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+}
+// 退出动画
+@keyframes m-drop-out {
+    0% {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scaleY(0.8);
+    }
+}

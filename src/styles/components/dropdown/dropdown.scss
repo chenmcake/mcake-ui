@@ -1,0 +1,8 @@
+/* 下拉菜单 */
+$dropdown-prefix                   : #{$css-prefix}-dropdown;
+
+// 主容器
+.#{$dropdown-prefix} {
+    position: relative;
+    display: inline-block;
+}

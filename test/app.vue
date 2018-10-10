@@ -70,7 +70,6 @@
 
 // 获得所有组件
 import { components } from './common/common.js';
-const arr = [];
 // 所以组件数据
 const pages = {};
 // 获得所有组件
@@ -78,14 +77,12 @@ components.forEach(function(item) {
     let children = item.children;
     if(children) {
         children.forEach(function(page) {
-            arr.push(page.title)
             let name = page.name;
             pages['M' + name] = resolve => require(['./views/' + name], resolve);
         });
     }
 });
 
-console.log(arr)
 function getUrl(urlStr) {
     //返回结果/参数前的字段
     var ret = {};

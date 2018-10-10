@@ -55,6 +55,6 @@
     "webpack-merge": "^4.1.0"
   },
   "dependencies": {
-    "popper.js": "^0.6.4"
+    "popper.js": "^1.14.4"
   }
 }
