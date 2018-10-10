@@ -1,0 +1,60 @@
+{
+  "name": "mcake-ui",
+  "version": "0.0.1",
+  "description": "Mcake UI 是一个基于Vue的前端UI框架，让Web开发变得更简单！",
+  "main": "dist/mcake.js",
+  "scripts": {
+    "dev": "webpack-dev-server --content-base test/ --open --inline --hot --compress --port 7070 --config build/webpack.dev.config.js",
+    "build": "npm run build:style && npm run build:dev && npm run build:prod",
+    "build:style": "gulp --gulpfile build/build-style.js",
+    "build:dev": "webpack --config build/webpack.build.dev.config.js",
+    "build:prod": "webpack --config build/webpack.build.prod.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.oschina.net/Mcake/Mcake.git"
+  },
+  "keywords": [
+    "vue",
+    "vue.js",
+    "mcake",
+    "ui",
+    "component"
+  ],
+  "author": "淡淡的月饼",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^7.1.4",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "css-loader": "^0.28.7",
+    "element-ui": "^1.4.8",
+    "file-loader": "^1.1.5",
+    "friendly-errors-webpack-plugin": "^1.6.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-clean-css": "^3.8.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "html-webpack-plugin": "^2.30.1",
+    "iview": "^2.4.0",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6",
+    "url-loader": "^0.5.9",
+    "vue": "^2.5.16",
+    "vue-loader": "^13.0.5",
+    "vue-router": "^2.7.0",
+    "vue-style-loader": "^3.0.3",
+    "vue-template-compiler": "^2.5.16",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.8.2",
+    "webpack-merge": "^4.1.0"
+  },
+  "dependencies": {
+    "popper.js": "^0.6.4"
+  }
+}
