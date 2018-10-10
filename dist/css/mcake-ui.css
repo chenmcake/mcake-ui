@@ -652,6 +652,95 @@ a[disabled] {
   }
 }
 
+.m-fade-enter,
+.m-fade-leave-to {
+  opacity: 0;
+}
+
+.m-drop-enter,
+.m-drop-leave-to {
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+.m-drop-enter-active,
+.m-drop-leave-active {
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+
+.m-drop-enter-active {
+  -webkit-animation-name: m-drop-in;
+          animation-name: m-drop-in;
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
+  -webkit-animation-timing-function: "linear";
+          animation-timing-function: "linear";
+}
+
+.m-drop-leave-active {
+  -webkit-animation-name: m-drop-out;
+          animation-name: m-drop-out;
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
+  -webkit-animation-timing-function: "linear";
+          animation-timing-function: "linear";
+}
+
+@-webkit-keyframes m-drop-in {
+  0% {
+    opacity: 0;
+    -webkit-transform: scaleY(0.8);
+            transform: scaleY(0.8);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+}
+
+@keyframes m-drop-in {
+  0% {
+    opacity: 0;
+    -webkit-transform: scaleY(0.8);
+            transform: scaleY(0.8);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+}
+
+@-webkit-keyframes m-drop-out {
+  0% {
+    opacity: 1;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scaleY(0.8);
+            transform: scaleY(0.8);
+  }
+}
+
+@keyframes m-drop-out {
+  0% {
+    opacity: 1;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scaleY(0.8);
+            transform: scaleY(0.8);
+  }
+}
+
 /**
  * 组件样式
  */
@@ -5312,6 +5401,12 @@ a[disabled] {
   height: 14px;
   border-left: 1px solid #ececec;
   vertical-align: middle;
+}
+
+/* 下拉菜单 */
+.m-dropdown {
+  position: relative;
+  display: inline-block;
 }
 
 /* 面包屑 */
