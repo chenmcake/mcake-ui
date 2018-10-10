@@ -1,0 +1,83 @@
+// 设置按钮的尺寸
+@mixin btn-size($size, $font-size) {
+    height: $size;
+    padding: 0 ($size - 2)/2;
+    font-size: $font-size;
+    // 长方
+    &.#{$btn-prefix}-fillet,
+    &.#{$btn-prefix}-box {
+        border-radius: round($size * $border-radius-ratio);
+    }
+    // 正方按钮
+    &.#{$btn-prefix}-circle,
+    &.#{$btn-prefix}-box,
+    &.#{$btn-prefix}-square{
+        width: $size;
+    }
+}
+
+// 普通按钮颜色风格
+@mixin btn-color($color) {
+    background-color: $color;
+    border-color: $color;
+    // 鼠标移入事件
+    &.hover,
+    &:hover,
+    &.focus,
+    &:focus  {
+        background-color: lighten($color, $color-gradient);
+        border-color: lighten($color, $color-gradient);
+    }
+    // 高亮状态
+    &.active,
+    &:active {
+        background-color: darken($color, $color-gradient);
+        border-color: darken($color, $color-gradient);
+    }
+
+    // 禁止按钮
+    &[disabled],
+    &[disabled].hover,
+    &[disabled]:hover,
+    &[disabled].focus,
+    &[disabled]:focus,
+    &[disabled].active,
+    &[disabled]:active {
+        background-color: lighten($color, $btn-disabled-gradient);
+        border-color: lighten($color, $btn-disabled-gradient);
+    }
+}
+
+// 边框按钮颜色风格
+@mixin btn-border-color($color) {
+    &.bordered {
+        color: $color;
+        background-color: transparent;
+        border-color: $color;
+
+        // 高亮状态
+        &.hover,
+        &:hover,
+        &.focus,
+        &:focus,
+        &.active,
+        &:active {
+            color: #FFF;
+            background-color: $color;;
+            border-color: $color;
+        }
+
+        // 禁止按钮
+        &[disabled],
+        &[disabled].hover,
+        &[disabled]:hover,
+        &[disabled].focus,
+        &[disabled]:focus,
+        &[disabled].active,
+        &[disabled]:active {
+            color: lighten($color, $btn-disabled-gradient);
+            background-color: transparent;
+            border-color: lighten($color, $btn-disabled-gradient);
+        }
+    }
+}

@@ -1,0 +1,207 @@
+/* 按钮 */
+$btn-prefix: #{$css-prefix}-btn;
+$btn-group-prefix: #{$btn-prefix}-group;
+// 基础样式
+.#{$btn-prefix} {
+    @include btn-size($btn-size-default, $btn-font-size-default);
+    color: $font-content-color;
+    display:inline-block;    //并行块元素
+    font-weight: normal;     //去除粗体
+    text-align: center;      //文字居中
+    white-space: nowrap;     //文字不换行
+    vertical-align: middle;  //文字垂直居中
+    cursor: pointer;         //鼠标成手指
+    outline:0;
+    border:1px solid transparent;
+    transition: color .2s linear, background-color .2s linear, border .2s linear;
+    @include btn-color($border-color);
+
+    // 禁止按钮
+    &[disabled],
+    &[disabled].hover,
+    &[disabled]:hover,
+    &[disabled].focus,
+    &[disabled]:focus,
+    &[disabled].active,
+    &[disabled]:active {
+        cursor: not-allowed;
+    }
+    // 正方按钮
+    &.#{$btn-prefix}-circle,
+    &.#{$btn-prefix}-box,
+    &.#{$btn-prefix}-square{
+        padding:0 !important;
+    }
+
+    // 边框类型
+    &.bordered {
+        border-color: $border-color;
+        background-color: transparent;
+        // 高亮状态
+        &.hover,
+        &:hover,
+        &.focus,
+        &:focus,
+        &.active,
+        &:active {
+            color: $color-primary;
+            border-color: $color-primary;
+        }
+        // 禁止按钮
+        &[disabled],
+        &[disabled].hover,
+        &[disabled]:hover,
+        &[disabled].focus,
+        &[disabled]:focus,
+        &[disabled].active,
+        &[disabled]:active {
+            color: lighten($font-content-color, $btn-disabled-gradient);
+            background-color: transparent;
+            border-color: lighten($border-color, 5%);
+        }
+    }
+}
+
+// 按钮尺寸 和 形状
+.#{$btn-prefix}-mini {
+    @include btn-size($btn-size-mini, $btn-font-size-mini);
+}
+.#{$btn-prefix}-small {
+    @include btn-size($btn-size-small, $btn-font-size-small);
+}
+.#{$btn-prefix}-large {
+    @include btn-size($btn-size-large, $btn-font-size-large);
+}
+
+// 颜色风格
+.#{$btn-prefix}-primary,
+.#{$btn-prefix}-success,
+.#{$btn-prefix}-info,
+.#{$btn-prefix}-warning,
+.#{$btn-prefix}-error,
+.#{$btn-prefix}-noble,
+.#{$btn-prefix}-white {
+    color: #FFF;
+}
+@each $theme, $color in $theme-colors {
+    .#{$btn-prefix}-#{$theme} {
+        @include btn-color($color);
+        @include btn-border-color($color);
+    }
+}
+// 白色按钮
+.#{$btn-prefix}-white {
+    // 边框类型
+    &.bordered {
+        background-color: transparent;
+        border-color: #FFF;
+        // 高亮状态
+        &.hover,
+        &:hover,
+        &.focus,
+        &:focus,
+        &.active,
+        &:active {
+            color: $color-primary;
+            background-color: #FFF;
+            border-color: #FFF;
+        }
+    }
+}
+// 文字按钮
+.#{$btn-prefix}-text {
+    background-color: transparent !important;
+    border-color: transparent !important;
+
+    &.hover,
+    &:hover,
+    &.focus,
+    &:focus {
+        color: lighten($color-primary, $color-gradient);
+    }
+    &.active,
+    &:active {
+        color: darken($color-primary, $color-gradient);
+    }
+
+    // 禁止按钮
+    &[disabled],
+    &[disabled].hover,
+    &[disabled]:hover,
+    &[disabled].focus,
+    &[disabled]:focus,
+    &[disabled].active,
+    &[disabled]:active {
+        color: $font-disabled-color;
+    }
+}
+
+// 按钮形状
+// 胶囊按钮
+.#{$btn-prefix}-pill {
+    border-radius: 200px;
+}
+// 圆形按钮
+.#{$btn-prefix}-circle {
+    border-radius: 100%;
+}
+
+// 长按钮
+.#{$btn-prefix}-long {
+    width: 100%;
+}
+
+/* 按钮组 */
+.#{$btn-group-prefix} {
+    @include clear;
+
+    >.#{$btn-prefix}{
+        float: left;
+    }
+}
+// 横向按钮组
+.#{$btn-group-prefix}-default {
+    >.#{$btn-prefix}{
+        &:first-child{
+            border-top-right-radius:0;
+            border-bottom-right-radius:0;
+        }
+        &:last-child{
+            border-top-left-radius:0;
+            border-bottom-left-radius:0;
+        }
+        &:not(:first-child):not(:last-child){
+            border-radius: 0;
+        }
+
+        & + .bordered {
+            border-left:0;
+        }
+    }
+}
+
+// 纵向按钮组
+.#{$btn-group-prefix}-vertical {
+    display: inline-block;
+
+    >.#{$btn-prefix}{
+        display: block;
+        float: none;
+
+        &:first-child{
+            border-bottom-left-radius:0;
+            border-bottom-right-radius:0;
+        }
+        &:last-child{
+            border-top-left-radius:0;
+            border-top-right-radius:0;
+        }
+        &:not(:first-child):not(:last-child){
+            border-radius: 0;
+        }
+
+        & + .bordered {
+            border-top:0;
+        }
+    }
+}

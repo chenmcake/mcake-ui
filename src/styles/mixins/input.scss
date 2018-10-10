@@ -1,0 +1,69 @@
+// 输入框尺寸和形状
+@mixin ipt-size($height, $font-size) {
+    font-size: $font-size;
+    // 容器和输入框的高度
+    &,
+    .#{$ipt-prefix} {
+        height: $height;
+    }
+}
+
+// 输入框颜色风格
+@mixin ipt-color($ipt-border-color, $ipt-border-hover-color: $ipt-border-color) {
+    .#{$ipt-prefix} {
+        border-color: $ipt-border-color;
+
+        // 鼠标移入
+        &.hover,
+        &:hover {
+            border-color: $ipt-border-hover-color;
+        }
+
+        // 获取焦点
+        &.focus,
+        &:focus {
+            border-color: lighten($ipt-border-hover-color, $color-gradient);
+            box-shadow: $ipt-box-shadow lighten($ipt-border-hover-color, $color-gradient);
+        }
+    }
+}
+// 输入框形状
+@mixin ipt-shape($height: 2000px) {
+    .#{$ipt-prefix}-before {
+        border-bottom-left-radius: round($height * $border-radius-ratio);
+        border-top-left-radius: round($height * $border-radius-ratio);
+    }
+    .#{$ipt-prefix}-after {
+        border-bottom-right-radius: round($height * $border-radius-ratio);
+        border-top-right-radius: round($height * $border-radius-ratio);
+    }
+    .#{$ipt-prefix}-content:first-child {
+        .#{$ipt-prefix} {
+            border-bottom-left-radius: round($height * $border-radius-ratio);
+            border-top-left-radius: round($height * $border-radius-ratio);
+        }
+    }
+    .#{$ipt-prefix}-content:last-child {
+        .#{$ipt-prefix} {
+            border-bottom-right-radius: round($height * $border-radius-ratio);
+            border-top-right-radius: round($height * $border-radius-ratio);
+        }
+    }
+}
+
+// 输入框图标
+@mixin ipt-icon($height) {
+    .#{$ipt-prefix} {
+        &.#{$ipt-prefix}-icon-left{
+            padding-left: $height;
+        }
+        &.#{$ipt-prefix}-icon-right{
+            padding-right: $height;
+        }
+        & + .#{$ipt-prefix}-icon {
+            width: $height;
+            height: $height;
+            line-height: $height;
+        }
+    }
+}

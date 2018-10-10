@@ -1,0 +1,82 @@
+/* 单选框 */
+$checkbox-prefix                   : #{$css-prefix}-checkbox;
+
+// 加载单选框和多选框公共样式
+@include radio-checkbox-base($checkbox-prefix);
+
+// 多选框组件主容器
+.#{$checkbox-prefix} {
+    // 美化多选框
+    .#{$checkbox-prefix}-inner {
+        border-radius: round($radio-size * $border-radius-ratio);
+
+        // 被选中标识
+        &:after {
+            position: absolute;
+            content: " ";
+            top: ($radio-size * 0.2 / 2) - 1px;
+            left: ($radio-size * 0.6 / 2) - 1px;
+            width: $radio-size - ($radio-size * 0.6);
+            height: $radio-size - ($radio-size * 0.4);
+            border: 2px solid transparent;
+            border-left: 0;
+            border-top: 0;
+            transform: rotate(45deg) scaleY(0);
+            transform-origin: center;
+            transition: all .2s $transition-function;
+        }
+    }
+
+    // 被选中时
+    &.checked {
+        .#{$checkbox-prefix}-inner {
+            border-color: $radio-checked-color;
+            background-color: $radio-checked-color;
+            &:after {
+                border-color: #fff;
+                transform: rotate(45deg) scaleY(1);
+            }
+        }
+    }
+
+    // 禁止状态
+    &.disabled {
+        // 鼠标手势
+        &, input {
+            cursor: not-allowed;
+        }
+        // 单选框美化
+        .#{$checkbox-prefix}-inner {
+            border-color: $radio-border-color;
+            background-color: lighten($radio-border-color, 14%);
+            &:after {
+                border-color: $radio-border-color;
+            }
+        }
+    }
+
+    // 不确定状态
+    &.indeterminate {
+        .#{$checkbox-prefix}-inner {
+            border-color: $radio-checked-color;
+            background-color: $radio-checked-color;
+
+            // 被选中标识
+            &:after {
+                position: absolute;
+                top: 50%;
+                left: 3px;
+                content: " ";
+                width: $radio-size - 8px;
+                height: 0;
+                margin-top: -1px;
+                border-right: 0;
+                transform: scale(1);
+                border-color: #fff;
+            }
+        }
+    }
+}
+
+// 单选框组
+@include radio-checkbox-group($checkbox-prefix);

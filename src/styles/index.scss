@@ -1,0 +1,18 @@
+/*!
+ * Mcake v1.3.0
+ * author：淡淡的月饼
+ * Create time：2017.9.18
+ * Update time：2017.9.18
+ */
+
+
+// 引入变量集
+@import './variables';
+// 引入混合集
+@import './mixins/index';
+// 引入公共资源
+@import './common/index';
+// 动画库
+@import './animate/index';
+// 引入所有组件
+@import './components/index';

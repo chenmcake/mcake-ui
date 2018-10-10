@@ -1,0 +1,9 @@
+// 警告提示风格
+@mixin alert-color($color) {
+    border: 1px solid mix($color, #fff, $alert-bg-gradient * 2);
+    background-color: mix($color, #fff, $alert-bg-gradient);
+
+    .#{$alert-prefix}-icon {
+        color: $color;
+    }
+}

@@ -1,0 +1,132 @@
+// 盒模型
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+// 关闭IOS、Android 横屏切换时字体大小自动调整功能
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased; //抗锯齿 让字体变得更清晰
+}
+// 字体样式
+body {
+    font-family: $font-family;
+    font-size: $font-size-default;
+    line-height: $line-height;
+    color: $font-content-color;
+}
+
+// 边距重置
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    margin: 0;
+    padding: 0;
+}
+
+// HTML5 标签兼容处理
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary{
+    display: block;
+}
+
+// 去除列表圆点
+ul,
+ol {
+    list-style: none;
+}
+
+//出去em i斜体
+address, cite, dfn, em, var, i {
+    font-style: normal;
+}
+//去除粗体
+h1, h2, h3, h4, h5, h6, strong{
+    font-weight: 400;
+}
+// 标题字体大小
+h1 {
+    font-size: 32px;
+    margin-bottom: 14px;
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+h4 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+h5 {
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+h6 {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+//去除img图片的默认border
+fieldset, img {
+    border: 0;
+}
+//重置下划线
+hr {
+    height: 0;
+    box-sizing: content-box;
+}
+// 表单控件
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+// 代码标签
+code,
+kbd,
+pre,
+samp {
+    font-family: $code-family;
+}
+
+// a链接
+a {
+    color: $link-color;
+    background: transparent;
+    text-decoration: none;
+    outline: 0;
+    cursor: pointer;
+    transition: color $transition-time ease;
+    // 高亮
+    &:active,
+    &:hover {
+        color: $link-active-color;
+        outline: 0;
+        text-decoration: none;
+    }
+    // 禁止
+    &[disabled] {
+        color: $font-disabled-color;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+}
+
+// 公共方法
+
+// 清除浮动
+.clear {
+  @include clear;
+}
+// 超出部分隐藏
+.omiss {
+  @include omiss;
+}

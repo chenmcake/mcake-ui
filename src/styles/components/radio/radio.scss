@@ -1,0 +1,61 @@
+/* 单选框 */
+$radio-prefix                   : #{$css-prefix}-radio;
+
+// 加载单选框和多选框公共样式
+@include radio-checkbox-base($radio-prefix);
+
+// 单选框组件主容器
+.#{$radio-prefix} {
+
+    // 美化单选框
+    .#{$radio-prefix}-inner {
+        border-radius: 50%;
+
+        // 中心的圆点
+        &:after {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: $radio-size - 8px;
+            height: $radio-size - 8px;
+            content: ' ';
+            display: block;
+            border-radius: 50%;
+            background-color: $radio-checked-color;
+            opacity: 0;
+            transform: scale(0);
+        }
+    }
+
+    // 被选中时
+    &.checked {
+        .#{$radio-prefix}-inner {
+            border-color: $radio-checked-color;
+            &:after {
+                opacity: 1;
+                transform: scale(1);
+                transition: all .2s $transition-function;
+            }
+        }
+    }
+
+    // 禁止状态
+    &.disabled {
+        // 鼠标手势
+        &, input {
+            cursor: not-allowed;
+        }
+        // 单选框美化
+        .#{$radio-prefix}-inner {
+            border-color: $radio-border-color;
+            background-color: lighten($radio-border-color, 13%);
+            &:after {
+                background-color: $radio-border-color;
+            }
+        }
+    }
+}
+
+
+// 单选框组
+@include radio-checkbox-group($radio-prefix);

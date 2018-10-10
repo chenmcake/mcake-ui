@@ -1,0 +1,51 @@
+/* 分割线 */
+$divider-prefix                   : #{$css-prefix}-divider;
+
+// 主容器
+.#{$divider-prefix} {
+    position: relative;
+
+    // 文字描述
+    .#{$divider-prefix}-text {
+        position: relative;
+        display: inline-block;
+        margin: 0 18px;
+        padding: 0 14px;
+        text-align: center;
+        white-space: nowrap;
+        background: #fff;
+        transform: translateY(-50%);
+    }
+}
+
+// 文字方向
+.#{$divider-prefix}-center {
+    text-align: center;
+}
+.#{$divider-prefix}-right {
+    text-align: right;
+}
+// 水平的分割线
+.#{$divider-prefix}-horizontal {
+    display: block;
+    width: 100%;
+    height: 0px;
+    margin: 20px 0;
+    border-top: 1px solid $divider-bg-color;
+
+    // 虚线
+    &.#{$divider-prefix}-dashed {
+        border-top-style: dashed;
+    }
+}
+
+// 垂直的分割线
+.#{$divider-prefix}-vertical {
+    display: inline-block;
+    margin: 0 8px;
+    width: 0;
+    height: 14px;
+    border-left: 1px solid $divider-bg-color;
+    vertical-align: middle;
+}
+

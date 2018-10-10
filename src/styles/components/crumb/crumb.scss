@@ -1,0 +1,43 @@
+/* 面包屑 */
+$crumb-prefix                   : #{$css-prefix}-crumb;
+
+// 面包屑
+.#{$crumb-prefix} {
+    font-size: 16px;
+}
+// 面包屑项目
+.#{$crumb-prefix}-item {
+    // 子菜单名称
+    .#{$crumb-prefix}-item-link,
+    .#{$crumb-prefix}-item-text {
+        display: inline-block;
+    }
+
+    // 可以点击的链接
+    .#{$crumb-prefix}-item-link {
+        cursor: pointer;
+        transition: color .2s linear;
+
+        &:hover {
+            color: lighten($color-primary, $color-gradient);
+        }
+    }
+    // 不可点击的链接
+    .#{$crumb-prefix}-item-text {
+        color: $crumb-text-color;
+    }
+
+    // 分隔符
+    .#{$crumb-prefix}-item-separator {
+        margin: 0 5px;
+        color: $crumb-separator-color;
+    }
+}
+// 设置最后一个子菜单分隔符隐藏
+.#{$crumb-prefix} {
+    .#{$crumb-prefix}-item:last-child {
+        .#{$crumb-prefix}-item-separator {
+            display: none;
+        }
+    }
+}

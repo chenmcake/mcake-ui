@@ -1,0 +1,38 @@
+/* 警告提示 */
+$quote-prefix                   : #{$css-prefix}-quote;
+
+// 主容器
+.#{$quote-prefix} {
+    position: relative;
+    padding: $quote-padding-y $quote-padding-x;
+    border: 1px solid transparent;
+    border-left-width: $quote-border-left-width;
+    border-left-color: $quote-default-color;
+
+    // 圆角的
+    &.radius {
+        border-radius: $quote-border-radius;
+    }
+
+    // 显示边框
+    &.bordered {
+        border-top-color: $quote-border-color;
+        border-right-color: $quote-border-color;
+        border-bottom-color: $quote-border-color;
+    }
+
+    // 显示背景
+    &.show-bg {
+        background-color: $quote-bg-color;
+        border-top-color: $quote-bg-color;
+        border-right-color: $quote-bg-color;
+        border-bottom-color: $quote-bg-color;
+    }
+}
+
+// 颜色风格
+@each $theme, $color in $theme-colors {
+    .#{$quote-prefix}-#{$theme} {
+        border-left-color: $color;
+    }
+}

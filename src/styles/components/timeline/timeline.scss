@@ -1,0 +1,82 @@
+/* 时间轴 */
+$timeline-prefix                   : #{$css-prefix}-timeline;
+
+// 主容器
+.#{$timeline-prefix} {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+// 时间轴项目主容器
+.#{$timeline-prefix}-item {
+    position: relative;
+    margin: 0;
+    padding-bottom: 20px;
+
+    // 圆点主容器
+    .#{$timeline-prefix}-tail {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        line-height: 1;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    // 圆点
+    .#{$timeline-prefix}-dot {
+        display: inline-block;
+        position: relative;
+        font-size: 20px;
+    }
+    .#{$timeline-prefix}-dot-inner {
+        display: block;
+        width: 16px;
+        height: 16px;
+        border: 1px solid transparent;
+        border-radius: 100%;
+    }
+    // 线
+    .#{$timeline-prefix}-line {
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        width: 1px;
+        height: 9999px;
+        transform: translateX(-50%);
+        background: $timeline-line-color;
+    }
+
+    // 内容区域
+    .#{$timeline-prefix}-cont {
+        position: relative;
+    }
+
+    // 标题
+    .#{$timeline-prefix}-title {
+        font-size: $timeline-title-font-size;
+        line-height: 1;
+        margin-bottom: 10px;
+    }
+}
+
+// 颜色风格
+@each $theme, $color in $theme-colors {
+    .#{$timeline-prefix}-item-#{$theme} {
+        // 圆点
+        .#{$timeline-prefix}-dot {
+            color: $color;
+        }
+        .#{$timeline-prefix}-dot-inner {
+            border-color: $color;
+        }
+    }
+}
+
+// 最后一个项目线条隐藏
+.#{$timeline-prefix} .#{$timeline-prefix}-item:last-child .#{$timeline-prefix}-line {
+    display: none;
+}

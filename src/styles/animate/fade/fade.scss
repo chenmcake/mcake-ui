@@ -1,0 +1,29 @@
+// 开始时和结束后
+.m-fade-enter,
+.m-fade-leave-to {
+    opacity: 0;
+}
+// 制作动画类
+@include make-animate("fade");
+
+// 进入动画
+@keyframes m-fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+// 退出动画
+@keyframes m-fade-out {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}

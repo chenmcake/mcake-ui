@@ -1,0 +1,37 @@
+/* 警告提示 */
+$avatar-prefix                   : #{$css-prefix}-avatar;
+
+// 主容器
+.#{$avatar-prefix} {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    color: #fff;
+    background: $avatar-bg-color;
+    vertical-align: middle;
+    white-space: nowrap;
+    overflow: hidden;
+
+    // 默认尺寸
+    @include avatar-size($avatar-size-default);
+
+    > img{
+        width: 100%;
+        height: 100%;
+    }
+}
+// 尺寸 和 形状
+.#{$avatar-prefix}-mini {
+    @include avatar-size($avatar-size-mini);
+}
+.#{$avatar-prefix}-small {
+    @include avatar-size($avatar-size-small);
+}
+.#{$avatar-prefix}-large {
+    @include avatar-size($avatar-size-large);
+}
+
+// 圆形头像
+.#{$avatar-prefix}-circle {
+    border-radius: 100%;
+}

@@ -1,0 +1,48 @@
+/* 评分 */
+$rate-prefix                   : #{$css-prefix}-rate;
+
+// 主容器
+.#{$rate-prefix} {
+    display: inline-block;
+    position: relative;
+}
+
+/* 星星主容器 */
+.#{$rate-prefix}-item {
+    font-size: $rate-icon-size;
+    cursor: pointer;
+    vertical-align: middle;
+}
+// 星星
+.#{$rate-prefix}-star {
+    position: relative;
+    margin-right: 6px;
+    transition: all .3s;
+
+    &:hover {
+        transform: scale(1.2);
+    }
+}
+// 半星
+.#{$rate-prefix}-half {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    overflow: hidden;
+}
+// 提示文字
+.#{$rate-prefix}-text {
+    display: inline-block;
+    vertical-align: middle;
+}
+// 只读状态
+.#{$rate-prefix}.disabled {
+    .#{$rate-prefix}-star:hover {
+        transform: scale(1);
+    }
+    .#{$rate-prefix}-item {
+        cursor: auto;
+    }
+}

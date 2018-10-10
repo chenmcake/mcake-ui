@@ -1,0 +1,182 @@
+/* 文字提示 */
+$tooltip-prefix                   : #{$css-prefix}-tooltip;
+
+// 主容器
+.#{$tooltip-prefix} {
+    position: relative;
+    display: inline-block;
+    color: #FFF;
+}
+// 触发按钮
+.#{$tooltip-prefix}-rel {
+    position: relative;
+    display: inline-block;
+}
+// 弹出层
+.#{$tooltip-prefix}-popper {
+    position: absolute;
+    display: block;
+    z-index: $zindex-popper;
+    visibility: visible;
+}
+.#{$tooltip-prefix}-body {
+    position: relative;
+    display: block;
+    background-color: $tooltip-default-color;
+    border: 1px solid transparent;
+    border-color: $tooltip-default-color;
+}
+.#{$tooltip-prefix}-popper[x-placement^=top] {
+    .#{$tooltip-prefix}-body {
+        bottom: round($tooltip-arrow-size * 0.707 + 1px);
+    }
+}
+.#{$tooltip-prefix}-popper[x-placement^=right] {
+    .#{$tooltip-prefix}-body {
+        left: round($tooltip-arrow-size * 0.707 + 1px);
+    }
+}
+.#{$tooltip-prefix}-popper[x-placement^=bottom] {
+    .#{$tooltip-prefix}-body {
+        top: round($tooltip-arrow-size * 0.707 + 1px);
+    }
+}
+.#{$tooltip-prefix}-popper[x-placement^=left] {
+    .#{$tooltip-prefix}-body {
+        right: round($tooltip-arrow-size * 0.707 + 1px);
+    }
+}
+
+// 带边框的类型
+.#{$tooltip-prefix}.bordered {
+    color: #333;
+    .#{$tooltip-prefix}-body {
+        background-color: #fff;
+    }
+}
+
+// 颜色主题
+@each $theme, $color in $theme-colors {
+    .#{$tooltip-prefix}-#{$theme} {
+        .#{$tooltip-prefix}-body {
+            background-color: $color;
+            border-color: $color;
+        }
+
+        // 带边框的颜色
+        &.bordered {
+            color: $color;
+        }
+    }
+}
+
+// 弹出层三角形
+.#{$tooltip-prefix}-arrow {
+    position: absolute;
+    width: $tooltip-arrow-size;
+    height: $tooltip-arrow-size;
+    background-color: inherit;
+    border: inherit;
+    border-right: 0;
+    border-bottom: 0;
+}
+
+.#{$tooltip-prefix}-popper[x-placement^=top] {
+    .#{$tooltip-prefix}-arrow {
+        bottom: -(round($tooltip-arrow-size / 2 + 1));
+        transform: rotate(225deg);
+    }
+}
+.#{$tooltip-prefix}-popper[x-placement^=right] {
+    .#{$tooltip-prefix}-arrow {
+        left: -(round($tooltip-arrow-size / 2 + 1));
+        transform: rotate(-45deg);
+    }
+}
+.#{$tooltip-prefix}-popper[x-placement^=bottom] {
+    .#{$tooltip-prefix}-arrow {
+        top: -(round($tooltip-arrow-size / 2 + 1));
+        transform: rotate(45deg);
+    }
+}
+.#{$tooltip-prefix}-popper[x-placement^=left] {
+    .#{$tooltip-prefix}-arrow {
+        right: -(round($tooltip-arrow-size / 2 + 1));
+        transform: rotate(135deg);
+    }
+}
+
+.#{$tooltip-prefix}-popper[x-placement=top-start] {
+    .#{$tooltip-prefix}-arrow {
+        left: round($tooltip-arrow-size / 2);
+    }
+}
+.#{$tooltip-prefix}-popper[x-placement=top] {
+    .#{$tooltip-prefix}-arrow {
+        left: 50%;
+        margin-left: -(round($tooltip-arrow-size / 2));
+    }
+}
+.#{$tooltip-prefix}-popper[x-placement=top-end] {
+    .#{$tooltip-prefix}-arrow {
+        right: round($tooltip-arrow-size / 2);
+    }
+}
+
+.#{$tooltip-prefix}-popper[x-placement=right-start] {
+    .#{$tooltip-prefix}-arrow {
+        top: round($tooltip-arrow-size / 2);
+    }
+}
+.#{$tooltip-prefix}-popper[x-placement=right] {
+    .#{$tooltip-prefix}-arrow {
+        top: 50%;
+        margin-top: -(round($tooltip-arrow-size / 2));
+    }
+}
+.#{$tooltip-prefix}-popper[x-placement=right-end] {
+    .#{$tooltip-prefix}-arrow {
+        bottom: round($tooltip-arrow-size / 2);
+    }
+}
+
+.#{$tooltip-prefix}-popper[x-placement=bottom-start] {
+    .#{$tooltip-prefix}-arrow {
+        left: round($tooltip-arrow-size / 2);
+    }
+}
+.#{$tooltip-prefix}-popper[x-placement=bottom] {
+    .#{$tooltip-prefix}-arrow {
+        left: 50%;
+        margin-left: -(round($tooltip-arrow-size / 2));
+    }
+}
+.#{$tooltip-prefix}-popper[x-placement=bottom-end] {
+    .#{$tooltip-prefix}-arrow {
+        right: round($tooltip-arrow-size / 2);
+    }
+}
+
+.#{$tooltip-prefix}-popper[x-placement=left-start] {
+    .#{$tooltip-prefix}-arrow {
+        top: round($tooltip-arrow-size / 2);
+    }
+}
+.#{$tooltip-prefix}-popper[x-placement=left] {
+    .#{$tooltip-prefix}-arrow {
+        top: 50%;
+        margin-top: -(round($tooltip-arrow-size / 2));
+    }
+}
+.#{$tooltip-prefix}-popper[x-placement=left-end] {
+    .#{$tooltip-prefix}-arrow {
+        bottom: round($tooltip-arrow-size / 2);
+    }
+}
+
+// 弹出层文字容器
+.#{$tooltip-prefix}-content {
+    position: relative;
+    padding: 8px 14px;
+    white-space: nowrap;
+}

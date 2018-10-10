@@ -1,0 +1,104 @@
+/* 进度条 */
+$progress-prefix                   : #{$css-prefix}-progress;
+
+// 主容器
+.#{$progress-prefix} {
+    position: relative;
+}
+// 线状进度条
+.#{$progress-prefix}-line {
+    display: inline-table;
+    width: 100%;
+
+    // 输入框组容器
+    .#{$progress-prefix}-inner,
+    .#{$progress-prefix}-text {
+        position: relative;
+        display: table-cell;
+        vertical-align: middle;
+    }
+    .#{$progress-prefix}-inner {
+        width: 100%;
+    }
+    // 进度条
+    .#{$progress-prefix}-bar {
+        width: 100%;
+        background: $progress-bar-bg;
+    }
+    // 进度条背景
+    .#{$progress-prefix}-bar-inner {
+        width: 0;
+        height: 100%;
+        transition: all .2s linear;
+
+        // 内置文字描述
+        .#{$progress-prefix}-text {
+            position: relative;
+            display: block;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #FFF;
+        }
+    }
+
+    // 文字描述
+    .#{$progress-prefix}-text {
+        min-width: 50px;
+        padding: 0 6px;
+        white-space: nowrap;
+        line-height: 1;
+    }
+    // 文字对齐方式 默认为居左
+    .#{$progress-prefix}-text-center {
+        text-align: center;
+    }
+    .#{$progress-prefix}-text-right {
+        text-align: right;
+    }
+}
+// 颜色风格
+@each $theme, $color in $theme-colors {
+    .#{$progress-prefix}-#{$theme} {
+        @include progress-bar-color($color);
+    }
+}
+
+// 胶囊形状进度条
+.#{$progress-prefix}-pill {
+    .#{$progress-prefix}-bar,
+    .#{$progress-prefix}-bar-inner {
+        border-radius: 200px;
+    }
+}
+
+// 进度条状态
+.#{$progress-prefix}-status-success {
+    .#{$progress-prefix}-text {
+        color: $color-success;
+    }
+}
+.#{$progress-prefix}-status-error {
+    .#{$progress-prefix}-text {
+        color: $color-error;
+    }
+}
+
+// 环状进度条
+.#{$progress-prefix}-circle {
+    display: inline-block;
+
+    // 文字描述
+    .#{$progress-prefix}-text {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        transform: translateY(-50%);
+
+        // 状态提示图标
+        .#{$progress-prefix}-icon {
+            font-size: 60px;
+        }
+    }
+}

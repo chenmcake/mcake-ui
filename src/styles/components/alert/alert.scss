@@ -1,0 +1,70 @@
+/* 警告提示 */
+$alert-prefix                   : #{$css-prefix}-alert;
+
+// 主容器
+.#{$alert-prefix} {
+    position: relative;
+    padding: $alert-padding-y $alert-padding-x;
+    border-radius: $alert-border-radius;
+}
+
+// 颜色风格
+.#{$alert-prefix}-info {
+    @include alert-color($color-info);
+}
+.#{$alert-prefix}-success {
+    @include alert-color($color-success);
+}
+.#{$alert-prefix}-warning {
+    @include alert-color($color-warning);
+}
+.#{$alert-prefix}-error {
+    @include alert-color($color-error);
+}
+.#{$alert-prefix}-noble {
+    @include alert-color($color-noble);
+}
+
+// 标题
+.#{$alert-prefix}-title {
+    font-size: 18px;
+}
+
+// 具有图标
+.#{$alert-prefix}-with-icon {
+    padding-left: $alert-icon-size + 10px + $alert-padding-x;
+
+    .#{$alert-prefix}-icon {
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        transform: translateY(-50%);
+        font-size: $alert-icon-size;
+    }
+
+    // 具有标题
+    &.#{$alert-prefix}-with-title {
+        padding-left: $alert-icon-size-big + 10px + $alert-padding-x;
+
+        .#{$alert-prefix}-icon {
+            font-size: $alert-icon-size-big;
+        }
+    }
+}
+
+// 关闭按钮
+.#{$alert-prefix}-close {
+    display: block;
+    position: absolute;
+    top: $alert-padding-y;
+    right: $alert-padding-x;
+    padding: 0 5px;
+    cursor: pointer;
+    color: #999;
+    transition: color $transition-time $transition-function;
+    // background-color: red;
+
+    &:hover {
+        color: #333;
+    }
+}

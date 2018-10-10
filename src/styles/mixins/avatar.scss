@@ -1,0 +1,12 @@
+// 设置头像的尺寸
+@mixin avatar-size($size) {
+    width: $size;
+    height: $size;
+    line-height: $size;
+    font-size: round($size * 0.57);
+
+    &.#{$avatar-prefix}-box {
+        border-radius: round($size * $border-radius-ratio);
+    }
+
+}

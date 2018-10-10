@@ -1,0 +1,36 @@
+// 核心混合方法
+
+// 清除浮动
+@mixin clear{
+    &:after{
+        content: " ";
+        display: block;
+        clear: both;
+    }
+}
+// 超出部分隐藏
+@mixin omiss{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+// 绘制三角形
+@mixin triangle($direction, $size, $borderColor){
+    width: 0;
+    height: 0;
+    display: block;
+    border: $size solid transparent;
+    //判断三角形箭头的方向 共四个值：top | right | bottom | left
+    @if $direction == top {
+      border-bottom-color: $borderColor;
+    }
+    @else if $direction == right {
+      border-left-color: $borderColor;
+    }
+    @else if $direction == bottom {
+      border-top-color: $borderColor;
+    }
+    @else if $direction == left {
+      border-right-color: $borderColor;
+    }
+}

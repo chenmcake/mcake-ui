@@ -1,0 +1,47 @@
+/* 数字输入框 */
+$ipt-number-prefix                   : #{$css-prefix}-ipt-number;
+
+// 主容器
+.#{$ipt-number-prefix}-wrap {
+    position: relative;
+    display: inline-block;
+    width: $ipt-width-default;
+
+    .#{$ipt-number-prefix} {
+        width: 100%;
+        padding: 0 $ipt-padding-default;
+        color: $font-content-color;
+        outline: 0;
+        border: 1px solid transparent;
+        transition: border .2s ease-in-out, background .2s ease-in-out, box-shadow .2s ease-in-out;
+
+        // 禁止输入
+        &[disabled] {
+            &,
+            &.hover,
+            &:hover {
+                cursor: not-allowed;
+                color: $font-disabled-color;
+                border-color: $border-color;
+                background-color: $ipt-disabled-bg;
+            }
+        }
+    }
+
+    // 输入框默认颜色风格
+    // @include ipt-color($border-color, $color-primary, $ipt-number-prefix);
+    // // 输入框的尺寸
+    // @include ipt-size($ipt-size-default, $ipt-font-size-default, $ipt-number-prefix);
+}
+
+// 占整行
+.#{$ipt-number-prefix}-wrap-long {
+    display: block;
+    width: 100%;
+}
+
+.#{$ipt-number-prefix}-action {
+    position: absolute;
+    right: 0;
+    top: 0;
+}

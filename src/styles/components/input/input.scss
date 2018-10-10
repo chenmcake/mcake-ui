@@ -1,0 +1,141 @@
+/* 输入框 */
+$ipt-prefix                   : #{$css-prefix}-ipt;
+
+// 主容器
+.#{$ipt-prefix}-wrap {
+    position: relative;
+    display: inline-table;
+    width: $ipt-width-default;
+    border-collapse: separate;
+
+    // 输入框组容器
+    .#{$ipt-prefix}-before,
+    .#{$ipt-prefix}-content,
+    .#{$ipt-prefix}-after {
+        position: relative;
+        display: table-cell;
+    }
+
+    // 输入框组前后容器
+    .#{$ipt-prefix}-before,
+    .#{$ipt-prefix}-after {
+        padding: 0 15px;
+        width: 1%;
+        white-space: nowrap;
+        vertical-align: middle;
+        color: $font-sub-color;
+        border: 1px solid $ipt-before-after-border;
+        background: lighten($ipt-before-after-border, 13%);
+    }
+    .#{$ipt-prefix}-before {
+        border-right: 0;
+    }
+    .#{$ipt-prefix}-after {
+        border-left: 0;
+    }
+
+    // 输入框基础样式
+    .#{$ipt-prefix} {
+        width: 100%;
+        padding: 0 $ipt-padding-default;
+        color: $font-content-color;
+        outline: 0;
+        border: 1px solid transparent;
+        transition: border .2s ease-in-out, background .2s ease-in-out, box-shadow .2s ease-in-out;
+        // 禁止输入
+        &[disabled] {
+            &,
+            &.hover,
+            &:hover {
+                cursor: not-allowed;
+                color: $font-disabled-color;
+                border-color: $border-color;
+                background-color: $ipt-disabled-bg;
+            }
+        }
+    }
+    // 输入框默认颜色风格
+    @include ipt-color($border-color, $color-primary);
+    // 输入框的尺寸
+    @include ipt-size($ipt-size-default, $ipt-font-size-default);
+
+    // 输入框形状
+    &.#{$ipt-prefix}-wrap-pill {
+        @include ipt-shape();
+    }
+    &.#{$ipt-prefix}-wrap-fillet {
+        @include ipt-shape($ipt-size-default);
+    }
+}
+
+
+// 占整行
+.#{$ipt-prefix}-wrap-long {
+    width: 100%;
+    display: table;
+}
+
+// 输入框的主题
+@each $theme, $color in $theme-colors {
+    .#{$ipt-prefix}-wrap-#{$theme} {
+        @include ipt-color($color);
+    }
+}
+// 输入框尺寸
+.#{$ipt-prefix}-wrap-mini {
+    @include ipt-size($ipt-size-mini, $ipt-font-size-mini);
+    // 带圆角的输入框
+    &.#{$ipt-prefix}-wrap-fillet {
+        @include ipt-shape($ipt-size-mini);
+    }
+}
+.#{$ipt-prefix}-wrap-small {
+    @include ipt-size($ipt-size-small, $ipt-font-size-small);
+    // 带圆角的输入框
+    &.#{$ipt-prefix}-wrap-fillet {
+        @include ipt-shape($ipt-size-small);
+    }
+}
+.#{$ipt-prefix}-wrap-large {
+    @include ipt-size($ipt-size-large, $ipt-font-size-large);
+    // 带圆角的输入框
+    &.#{$ipt-prefix}-wrap-fillet {
+        @include ipt-shape($ipt-size-large);
+    }
+}
+// 输入框图标
+.#{$ipt-prefix}-wrap {
+    // 图标
+    .#{$ipt-prefix}-icon {
+        position: absolute;
+        top: 0;
+        right: 0;
+        text-align: center;
+        display: block;
+    }
+    .#{$ipt-prefix}-icon-left {
+        + .#{$ipt-prefix}-icon {
+            right: auto;
+            left: 0;
+        }
+    }
+
+    // 图标
+    @include ipt-icon($ipt-size-default);
+}
+.#{$ipt-prefix}-wrap-mini {
+    @include ipt-icon($ipt-size-mini);
+}
+.#{$ipt-prefix}-wrap-small {
+    @include ipt-icon($ipt-size-small);
+}
+.#{$ipt-prefix}-wrap-large {
+    @include ipt-icon($ipt-size-large);
+}
+
+// 多行文本框
+.#{$ipt-prefix}-wrap {
+    textarea.#{$ipt-prefix} {
+        height: auto;
+    }
+}

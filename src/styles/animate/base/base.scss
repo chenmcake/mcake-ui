@@ -1,0 +1,13 @@
+// Mcake 公共动画库
+// - loading          加载中
+
+// loading 加载中-透明度
+@keyframes loading-opacity {
+    0%,to {
+        opacity: .45;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}

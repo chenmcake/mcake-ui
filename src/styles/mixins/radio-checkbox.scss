@@ -1,0 +1,61 @@
+// 选择框组件主容器基础样式
+@mixin radio-checkbox-base($prefix) {
+    // 选择框主容器
+    .#{$prefix} {
+        display: inline-block;
+        padding: 5px 0;
+        vertical-align: middle;
+        cursor: pointer;
+
+        // 从第二个选项开始 设置左边距
+        + .#{$prefix} {
+            margin-left: 10px;
+        }
+
+        // 选择框组件中输入框父容器
+        .#{$prefix}-ipt {
+            position: relative;
+            width: $radio-size;
+            height: $radio-size;
+            margin-right: 3px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        // 选择框美化
+        .#{$prefix}-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: block;
+            border: 1px solid $radio-border-color;
+            transition: all .2s $transition-function;
+        }
+
+        // 选择框本身
+        input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            z-index: 1;
+            cursor: pointer;
+        }
+    }
+}
+
+// 单选框和多选框禁止
+@mixin radio-checkbox-group($prefix) {
+    .#{$prefix}-group {
+        display: inline-block;
+        // 垂直展示
+        &.vertical {
+            .#{$prefix} {
+                display: block;
+                margin-left: 0;
+            }
+        }
+    }
+}

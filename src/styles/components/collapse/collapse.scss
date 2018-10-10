@@ -1,0 +1,57 @@
+/* 折叠面板 */
+$collapse-prefix                   : #{$css-prefix}-collapse;
+
+// 主容器
+.#{$collapse-prefix} {
+    position: relative;
+    background-color: $collapse-bg-color;
+    border: 1px solid $collapse-border-color;
+    border-radius: 3px;
+
+    >.#{$collapse-prefix}-item + .#{$collapse-prefix}-item {
+        border-top: 1px solid $collapse-border-color;
+    }
+}
+// 颜色风格
+.#{$collapse-prefix}-white {
+    background-color: #fff;
+}
+
+// 面板项目
+.#{$collapse-prefix}-item {
+    // 头部
+    >.#{$collapse-prefix}-item-head {
+        position: relative;
+        height: 40px;
+        padding: 0 15px;
+        line-height: 40px;
+        cursor: pointer;
+
+        >.#{$collapse-prefix}-item-icon {
+            transition: $collapse-transition-duration transform $collapse-transition-function;
+        }
+    }
+    // 主要内容
+    >.#{$collapse-prefix}-item-body {
+        >.#{$collapse-prefix}-item-cont {
+            position: relative;
+            border-top: 1px solid $collapse-border-color;
+            padding: 15px;
+            background-color: #fff;
+        }
+    }
+
+    // 打开状态
+    &.is-open {
+        >.#{$collapse-prefix}-item-head {
+            >.#{$collapse-prefix}-item-icon {
+                transform: rotate(90deg);
+            }
+        }
+    }
+}
+
+// 折叠面板动画
+.collapse-transition {
+  transition: $collapse-transition-duration height $collapse-transition-function, $collapse-transition-duration padding-top $collapse-transition-function, $collapse-transition-duration padding-bottom $collapse-transition-function;
+}

@@ -1,0 +1,119 @@
+/* 标签 */
+$tag-prefix                   : #{$css-prefix}-tag;
+
+// 主容器
+.#{$tag-prefix} {
+    display: inline-block;
+    position: relative;
+    padding: 0 $tag-padding-x;
+    cursor: pointer;
+    background-color: $tag-bg-color;
+    border: 1px solid $tag-border-color;
+    border-radius: round(28px * $border-radius-ratio);
+    vertical-align: middle;
+}
+.#{$tag-prefix}-inner,
+.#{$tag-prefix}-label {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+}
+// 圆点
+.#{$tag-prefix}-inner {
+    width: 14px;
+    height: 14px;
+    margin-right: 3px;
+    border-radius: 100%;
+    background-color: $tag-border-color;
+}
+// 文字
+.#{$tag-prefix}-label {
+    white-space: nowrap;
+    line-height: 1;
+}
+
+// 可关闭的
+.#{$tag-prefix}-with-close {
+    .#{$tag-prefix}-label {
+        padding-right: $tag-padding-x;
+    }
+}
+// 关闭按钮
+.#{$tag-prefix}-close {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: center;
+    border-left: 1px solid $tag-border-color;
+
+    .#{$css-prefix}-i {
+        opacity: .7;
+        transition: opacity .3s;
+    }
+
+    &:hover {
+       .#{$css-prefix}-i {
+            opacity: 1;
+        }
+    }
+}
+// 形状和颜色风格
+.#{$tag-prefix}-primary,
+.#{$tag-prefix}-success,
+.#{$tag-prefix}-info,
+.#{$tag-prefix}-warning,
+.#{$tag-prefix}-error,
+.#{$tag-prefix}-noble {
+    &:not(.#{$tag-prefix}-border):not(.#{$tag-prefix}-dot):not(.#{$tag-prefix}-dot-border) {
+        color: #FFF;
+
+        .#{$tag-prefix}-close {
+            border-left-color: transparent;
+        }
+    }
+}
+// 颜色风格
+@each $theme, $color in $theme-colors {
+    .#{$tag-prefix}-#{$theme} {
+        background-color: $color;
+        border-color: $color;
+
+        // 边框类型
+        &.#{$tag-prefix}-border {
+            color: $color;
+
+            .#{$tag-prefix}-close {
+                border-left-color: $color;
+            }
+        }
+        // 圆点
+        .#{$tag-prefix}-inner {
+            background-color: $color;
+        }
+    }
+}
+// 重置一些样式
+.#{$tag-prefix}-border,
+.#{$tag-prefix}-dot,
+.#{$tag-prefix}-dot-border {
+    background-color: transparent;
+}
+.#{$tag-prefix}-border {
+    .#{$tag-prefix}-close {
+        border-left-color: $tag-border-color;
+    }
+}
+.#{$tag-prefix}-dot {
+    border-color: transparent;
+    .#{$tag-prefix}-close {
+        border-left-color: transparent;
+    }
+}
+.#{$tag-prefix}-dot-border {
+    border-color: $tag-border-color;
+
+    .#{$tag-prefix}-close {
+        border-left-color: $tag-border-color;
+    }
+}

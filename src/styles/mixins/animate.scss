@@ -1,0 +1,26 @@
+// 制作动画
+@mixin make-animate($name, $in-time: .3s, $in-fun: 'linear', $out-time: $in-time, $out-fun: 'linear') {
+    // 动画进入开始和退出结束
+    .m-#{$name}-enter,
+    .m-#{$name}-leave-to {
+        animation-play-state: paused;
+    }
+    // 动画进入时和退出时
+    .m-#{$name}-enter-active,
+    .m-#{$name}-leave-active {
+        animation-fill-mode: both;
+        animation-play-state: running;
+    }
+    // // 进入动画
+    .m-#{$name}-enter-active {
+        animation-name: m-#{$name}-in;
+        animation-duration: $in-time;
+        animation-timing-function: $in-fun;
+    }
+    // // 退出动画
+    .m-#{$name}-leave-active {
+        animation-name: m-#{$name}-out;
+        animation-duration: $out-time;
+        animation-timing-function: $out-fun;
+    }
+}

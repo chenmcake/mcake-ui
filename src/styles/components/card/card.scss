@@ -1,0 +1,99 @@
+/* 卡片 */
+$card-prefix                   : #{$css-prefix}-card;
+
+// 主容器
+.#{$card-prefix} {
+    position: relative;
+    background: #FFF;
+    transition: all .3s ease;
+
+    // 边框
+    &.bordered {
+        border: 1px solid $card-border-color;
+    }
+    // 鼠标悬停事件
+    &.hover:hover {
+        box-shadow: 0 4px 12px rgba(0,0,0,.1);
+    }
+
+    // 标题
+    .#{$card-prefix}-title {
+        position: relative;
+        padding: $card-padding-y $card-padding-x;
+        border-bottom: 1px solid $card-border-color;
+        font-size: 16px;
+        @include omiss;
+    }
+
+    // 封面
+    .#{$card-prefix}-cover {
+        overflow: hidden;
+        img {
+            width: 100%;
+            display: block;
+            transition: transform .3s ease;
+        }
+    }
+    &.cover-hover:hover {
+        .#{$card-prefix}-cover {
+            img {
+                transform: scale(1.3);
+            }
+        }
+    }
+
+    // 主要内容
+    .#{$card-prefix}-body {
+        position: relative;
+        padding: $card-padding-x;
+    }
+
+    // 预加载
+    .#{$card-prefix}-loading {
+        .#{$card-prefix}-loading-row {
+            margin-bottom: 15px;
+            @include clear;
+            animation: loading-opacity 1.6s ease infinite;
+
+            > span {
+                float: left;
+                display: block;
+                height: 14px;
+                background: $card-loading-color;
+
+                + span {
+                    margin-left: 2%;
+                }
+            }
+        }
+    }
+
+    // 底部
+    .#{$card-prefix}-foot {
+        position: relative;
+        background: $card-foot-color;
+        border-top: 1px solid $card-border-color;
+    }
+
+    // 操作集合
+    .m-card-action {
+        padding: $card-padding-y;
+        @include clear;
+
+        li {
+            float: left;
+            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all .2s ease-out;
+
+            + li {
+                border-left: 1px solid $card-border-color;
+            }
+
+            &:hover {
+                color: $link-color;
+            }
+        }
+    }
+}

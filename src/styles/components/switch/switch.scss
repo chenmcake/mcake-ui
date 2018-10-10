@@ -1,0 +1,61 @@
+/* 开关 */
+$switch-prefix                   : #{$css-prefix}-switch;
+
+// 主容器
+.#{$switch-prefix} {
+    display: inline-block;
+    position: relative;
+    border: 1px solid $switch-bg-color;
+    border-radius: 200px;
+    background-color: $switch-bg-color;
+    cursor: pointer;
+    vertical-align: middle;
+    transition: all .3s;
+
+    // 圆点
+    .#{$switch-prefix}-dot {
+        display: block;
+        position: absolute;
+        left: 1px;
+        top: 1px;
+        background-color: #FFF;
+        border-radius: 100%;
+        box-shadow: 0 1px 3px rgba(0,0,0,.4);
+        transition: left .3s;
+    }
+    // 文字内容
+    .#{$switch-prefix}-text {
+        display: block;
+        position: relative;
+        width: 100%;
+        padding: 0 6px;
+        text-align: right;
+        color: #FFF;
+        white-space: nowrap;
+    }
+
+    // 被选中后
+    &.checked {
+        .#{$switch-prefix}-text {
+            text-align: left;
+        }
+    }
+}
+
+// 颜色风格
+@each $theme, $color in $theme-colors {
+    .#{$switch-prefix}-#{$theme} {
+        // 被选中后
+        &.checked {
+            border-color: $color;
+            background-color: $color;
+        }
+    }
+}
+
+.#{$switch-prefix} {
+    &.disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
+}

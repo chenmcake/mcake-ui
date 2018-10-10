@@ -1,0 +1,47 @@
+/* 徽章 */
+$badge-prefix                   : #{$css-prefix}-badge;
+
+// 主容器
+.#{$badge-prefix} {
+    position: relative;
+    display: inline-block;
+    line-height: 1;
+    vertical-align: middle;
+}
+
+// 徽章内容区域
+.#{$badge-prefix}-cont {
+    position: absolute;
+    top: -($badge-height / 2);
+    right: 0;
+    display: block;
+    z-index: $zindex-badge;
+    min-width: $badge-height;
+    height: $badge-height;
+    padding: 0 $badge-padding-x;
+    border: 1px solid #fff;
+    border-radius: $badge-height;
+    text-align: center;
+    line-height: $badge-height - 2;
+    white-space: nowrap;
+    color: #FFF;
+    background: $badge-bg-color;
+    transform: translateX(50%);
+}
+
+// 小圆点
+.#{$badge-prefix}-dot {
+    top: -($badge-dot-size / 2);
+    width: $badge-dot-size;
+    min-width: $badge-dot-size;
+    height: $badge-dot-size;
+    padding: 0;
+    border-radius: 100%;
+}
+
+// 独立使用
+.#{$badge-prefix}-cont-alone {
+    position: relative;
+    top: auto;
+    transform: translateX(0);
+}

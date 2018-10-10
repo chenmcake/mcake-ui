@@ -1,0 +1,38 @@
+/* 栅格 */
+$row-prefix: #{$css-prefix}-row;
+$col-prefix: #{$css-prefix}-col;
+
+// 行
+.#{$row-prefix} {
+    position: relative;
+    display: block;
+    margin-left: $grid-gutter / -2;
+    margin-right: $grid-gutter / -2;
+    zoom: 1;
+    @include clear;
+}
+// 列
+.#{$col-prefix} {
+    position: relative;
+    display: block;
+    float: left;
+    width: 100%;
+    padding-left: $grid-gutter / 2;
+    padding-right: $grid-gutter / 2;
+}
+// 默认列
+@include make-grid("span");
+@include make-grid("xs");
+// xs
+@media (min-width: $screen-sm-min) {
+    @include make-grid("sm");
+}
+@media (min-width: $screen-md-min) {
+    @include make-grid("md");
+}
+@media (min-width: $screen-lg-min) {
+    @include make-grid("lg");
+}
+@media (min-width: $screen-xl-min) {
+    @include make-grid("xl");
+}

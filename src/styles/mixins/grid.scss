@@ -1,0 +1,61 @@
+// 处理第0个栅格
+@mixin handle-grid-columns($index, $class, $type) {
+    // 处理宽度
+    @if ($type == width) and ($index == 0) {
+        .#{$col-prefix}-#{$class}-#{$index} {
+            display: none;
+        }
+    }
+    @if ($type == width) and ($index > 0) {
+        .#{$col-prefix}-#{$class}-#{$index} {
+            width: percentage(($index / $grid-columns));
+        }
+    }
+    // 向左排序
+    @if ($type == push) and ($index == 0) {
+        .#{$col-prefix}-#{$class}-push-#{$index} {
+            left: auto;
+        }
+    }
+    @if ($type == push) and ($index > 0) {
+        .#{$col-prefix}-#{$class}-push-#{$index} {
+            left: percentage(($index / $grid-columns));
+        }
+    }
+    // 向右排序
+    @if ($type == pull) and ($index == 0) {
+        .#{$col-prefix}-#{$class}-pull-#{$index} {
+            right: auto;
+        }
+    }
+    @if ($type == pull) and ($index > 0) {
+        .#{$col-prefix}-#{$class}-pull-#{$index} {
+            right: percentage(($index / $grid-columns));
+        }
+    }
+    // 处理偏移
+    @if ($type == offset){
+        .#{$col-prefix}-#{$class}-offset-#{$index} {
+            margin-left: percentage(($index / $grid-columns));
+        }
+    }
+}
+
+// 遍历生成所有栅格
+@mixin map-grid-columns($columns, $class, $type) {
+    @for $i from 0 through $columns {
+        @include handle-grid-columns($i, $class, $type);
+    }
+}
+
+// 制作栅格
+@mixin make-grid($class) {
+    // 生成宽度
+    @include map-grid-columns($grid-columns, $class, width);
+    // 向左偏移
+    @include map-grid-columns($grid-columns, $class, push);
+    // 向右偏移
+    @include map-grid-columns($grid-columns, $class, pull);
+    // 偏移
+    @include map-grid-columns($grid-columns, $class, offset);
+}
