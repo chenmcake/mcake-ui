@@ -1,0 +1,21 @@
+/* 选择器 */
+$select-dropdown                   : #{$css-prefix}-select-dropdown;
+
+// 弹出层主容器
+.#{$select-dropdown} {
+    position: absolute;
+    width: inherit;
+    max-height: 200px;
+    overflow: auto;
+    padding: $select-dropdown-padding-x 0;
+    border-radius: $select-dropdown-border-radius;
+    box-shadow: 0 2px 7px $box-shadow-color;
+    background-color: #FFF;
+    z-index: $zindex-select-dropdown;
+
+    // 没有设置固定
+    &.#{$select-dropdown}-no-max-height {
+        overflow: visible;
+        max-height: none;
+    }
+}

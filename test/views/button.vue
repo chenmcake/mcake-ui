@@ -247,6 +247,49 @@
             </div>
         </div> <!-- demo-item 结束 -->
 
+
+        <div class="demo-item demo-diy-item">
+            <div class="demo-item-tit">
+                <h3>按钮组 - 尺寸</h3>
+            </div>
+            <div class="demo-item-cont">
+                <div class="demo-item-box">
+                    <m-button-group size="mini">
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
+                    </m-button-group>
+                </div>
+                <div class="demo-item-box">
+                    <m-button-group size="small">
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
+                    </m-button-group>
+                </div>
+                <div class="demo-item-box">
+                    <m-button-group>
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
+                    </m-button-group>
+                </div>
+                <div class="demo-item-box">
+                    <m-button-group size="large">
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
+                    </m-button-group>
+                </div>
+
+            </div>
+        </div> <!-- demo-item 结束 -->
+
+
         <div class="demo-item demo-diy-item">
             <div class="demo-item-tit">
                 <h3>按钮组 - 形状</h3>
@@ -478,6 +521,22 @@
                     <m-button-group>
                         <m-button type="primary" shape="pill">下拉菜单</m-button>
                         <m-button type="primary" icon="bottom" shape="circle"></m-button>
+                    </m-button-group>
+                </div>
+            </div>
+        </div> <!-- demo-item 结束 -->
+
+        <div class="demo-item demo-diy-item">
+            <div class="demo-item-tit">
+                <h3>按钮组 - 点击状态</h3>
+            </div>
+            <div class="demo-item-cont">
+                <div class="demo-item-box">
+                    <m-button-group>
+                        <m-button class="active" type="primary" bordered>OK</m-button>
+                        <m-button type="primary" bordered>OK</m-button>
+                        <m-button type="primary" bordered>OK</m-button>
+                        <m-button type="primary" bordered>OK</m-button>
                     </m-button-group>
                 </div>
             </div>
