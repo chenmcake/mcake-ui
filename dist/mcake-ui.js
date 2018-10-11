@@ -7104,7 +7104,6 @@ var wrapClass = 'm-divider';
 //
 //
 //
-//
 
 // 公共方法
 
@@ -7135,7 +7134,7 @@ var wrapClass = 'm-dropdown';
         },
         trigger: {
             validator: function validator(value) {
-                return Object(__WEBPACK_IMPORTED_MODULE_1__utils_base__["b" /* includes */])(['click', 'hover', 'custom'], value);
+                return Object(__WEBPACK_IMPORTED_MODULE_1__utils_base__["b" /* includes */])(['click', 'hover', 'contextMenu', 'custom'], value);
             },
 
             default: 'hover'
@@ -7193,12 +7192,25 @@ var wrapClass = 'm-dropdown';
     mounted: function mounted() {},
 
     methods: {
+        // 按钮点击事件
+        handleClick: function handleClick() {
+            if (this.trigger !== 'click' || this.trigger === 'custom') {
+                return false;
+            }
+            this.currentVisible = !this.currentVisible;
+        },
+        handleRightClick: function handleRightClick() {
+            if (this.trigger !== 'contextMenu' || this.trigger === 'custom') {
+                return false;
+            }
+            this.currentVisible = !this.currentVisible;
+        },
+
         // 鼠标移入事件
         handleMouseenter: function handleMouseenter() {
             var _this = this;
 
-            if (this.trigger === 'custom') return false;
-            if (this.trigger !== 'hover') {
+            if (this.trigger !== 'hover' || this.trigger === 'custom') {
                 return false;
             }
             if (this.timeout) clearTimeout(this.timeout);
@@ -7211,8 +7223,7 @@ var wrapClass = 'm-dropdown';
         handleMouseleave: function handleMouseleave() {
             var _this2 = this;
 
-            if (this.trigger === 'custom') return false;
-            if (this.trigger !== 'hover') {
+            if (this.trigger !== 'hover' || this.trigger === 'custom') {
                 return false;
             }
             if (this.timeout) {
@@ -10539,7 +10550,7 @@ __WEBPACK_IMPORTED_MODULE_0__dropdown_vue__["a" /* default */].Item = __WEBPACK_
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_13_7_3_vue_loader_lib_selector_type_script_index_0_dropdown_vue__ = __webpack_require__(74);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__babel_loader_node_modules_vue_loader_13_7_3_vue_loader_lib_template_compiler_index_id_data_v_3417af2c_hasScoped_false_buble_transforms_node_modules_vue_loader_13_7_3_vue_loader_lib_selector_type_template_index_0_dropdown_vue__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__babel_loader_node_modules_vue_loader_13_7_3_vue_loader_lib_template_compiler_index_id_data_v_366fd3c9_hasScoped_false_buble_transforms_node_modules_vue_loader_13_7_3_vue_loader_lib_selector_type_template_index_0_dropdown_vue__ = __webpack_require__(202);
 var normalizeComponent = __webpack_require__(0)
 /* script */
 
@@ -10556,7 +10567,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_13_7_3_vue_loader_lib_selector_type_script_index_0_dropdown_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__babel_loader_node_modules_vue_loader_13_7_3_vue_loader_lib_template_compiler_index_id_data_v_3417af2c_hasScoped_false_buble_transforms_node_modules_vue_loader_13_7_3_vue_loader_lib_selector_type_template_index_0_dropdown_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__babel_loader_node_modules_vue_loader_13_7_3_vue_loader_lib_template_compiler_index_id_data_v_366fd3c9_hasScoped_false_buble_transforms_node_modules_vue_loader_13_7_3_vue_loader_lib_selector_type_template_index_0_dropdown_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -10618,7 +10629,9 @@ var esExports = { render: render, staticRenderFns: staticRenderFns };
 
 "use strict";
 var render = function render() {
-  var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', { class: _vm.wrapClasses, on: { "mouseenter": _vm.handleMouseenter, "mouseleave": _vm.handleMouseleave } }, [_vm.splitButton ? _c('div', { ref: "reference", staticClass: "m-dropdown-rel" }, [_vm._t("default"), _vm._v(" "), _c('m-button-group', [_c('m-button', { attrs: { "type": "primary" } }, [_vm._v("OK")]), _vm._v(" "), _c('m-button', { attrs: { "type": "primary" } }, [_vm._v("OK")])], 1)], 2) : _c('div', { ref: "reference", staticClass: "m-dropdown-rel" }, [_vm._t("default")], 2), _vm._v(" "), _c('transition', { attrs: { "name": "m-drop" } }, [_c('m-drop', { directives: [{ name: "show", rawName: "v-show", value: _vm.currentVisible, expression: "currentVisible" }, { name: "transfer-dom", rawName: "v-transfer-dom" }], ref: "drop", class: _vm.listClasses, attrs: { "placement": _vm.placement, "parent-width": _vm.parentWidth, "no-max-height": "" }, on: { "mouseenter": _vm.handleMouseenter, "mouseleave": _vm.handleMouseleave } }, [_vm._t("list")], 2)], 1)], 1);
+  var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', { class: _vm.wrapClasses, on: { "mouseenter": _vm.handleMouseenter, "mouseleave": _vm.handleMouseleave } }, [_c('div', { ref: "reference", staticClass: "m-dropdown-rel", on: { "click": _vm.handleClick, "contextmenu": function contextmenu($event) {
+        $event.preventDefault();return _vm.handleRightClick($event);
+      } } }, [_vm._t("default")], 2), _vm._v(" "), _c('transition', { attrs: { "name": "m-drop" } }, [_c('m-drop', { directives: [{ name: "show", rawName: "v-show", value: _vm.currentVisible, expression: "currentVisible" }, { name: "transfer-dom", rawName: "v-transfer-dom" }], ref: "drop", class: _vm.listClasses, attrs: { "placement": _vm.placement, "parent-width": _vm.parentWidth, "no-max-height": "" }, on: { "mouseenter": _vm.handleMouseenter, "mouseleave": _vm.handleMouseleave } }, [_vm._t("list")], 2)], 1)], 1);
 };
 var staticRenderFns = [];
 var esExports = { render: render, staticRenderFns: staticRenderFns };

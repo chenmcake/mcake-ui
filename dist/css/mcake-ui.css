@@ -5504,6 +5504,10 @@ a[disabled] {
   display: inline-block;
 }
 
+.m-dropdown-rel {
+  position: relative;
+}
+
 .m-dropdown-menu {
   min-width: 106px;
 }
@@ -5513,6 +5517,30 @@ a[disabled] {
   line-height: normal;
   cursor: pointer;
   list-style: none;
+  white-space: nowrap;
+  clear: both;
+  font-size: 14px !important;
+  -webkit-transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.m-dropdown-item:hover, .m-dropdown-item.selected {
+  background-color: #F3F3F3;
+}
+
+.m-dropdown-item.hover, .m-dropdown-item:hover, .m-dropdown-item.selected {
+  background-color: #F3F3F3;
+}
+
+.m-dropdown-item[disabled], .m-dropdown-item[disabled].hover, .m-dropdown-item[disabled]:hover, .m-dropdown-item[disabled].selected {
+  cursor: not-allowed;
+  color: #BBBEC4;
+  background-color: #FFF;
+}
+
+.m-dropdown-item[divided] {
+  margin-top: 5px;
+  border-top: 1px solid #ececec;
 }
 
 /* 面包屑 */
