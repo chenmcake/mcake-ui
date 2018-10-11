@@ -6,3 +6,52 @@ $dropdown-prefix                   : #{$css-prefix}-dropdown;
     position: relative;
     display: inline-block;
 }
+
+// 按钮父容器
+.#{$dropdown-prefix}-rel {
+    position: relative;
+}
+
+// 下拉菜单列表
+.#{$dropdown-prefix}-menu {
+    min-width: $dropdown-menu-min-width;
+}
+
+// 下拉菜单列表项目
+.#{$dropdown-prefix}-item {
+    padding: $dropdown-item-padding-x $dropdown-item-padding-y;
+    line-height: normal;
+    cursor: pointer;
+    list-style: none;
+    white-space: nowrap;
+    clear: both;
+    font-size: $font-size-default !important;
+    transition: background-color $transition-time $transition-function;
+
+    // 鼠标移入事件
+    &:hover,
+    &.selected {
+        background-color: $dropdown-item-hover-bg;
+    }
+    // 高亮状态
+    &.hover,
+    &:hover,
+    &.selected {
+        background-color: $dropdown-item-hover-bg;
+    }
+
+    // 禁止状态
+    &[disabled],
+    &[disabled].hover,
+    &[disabled]:hover,
+    &[disabled].selected {
+        cursor: not-allowed;
+        color: $dropdown-item-disabled-color;
+        background-color: #FFF;
+    }
+
+    &[divided] {
+        margin-top:5px;
+        border-top:1px solid $dropdown-item-divided-border-color;
+    }
+}

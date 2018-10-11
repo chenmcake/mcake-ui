@@ -4,7 +4,13 @@
         @mouseenter="handleMouseenter"
         @mouseleave="handleMouseleave">
         <!-- 按钮 -->
-        <div class="m-dropdown-rel" ref="reference"><slot></slot></div>
+        <div
+            class="m-dropdown-rel"
+            ref="reference"
+            @click="handleClick"
+            @contextmenu.prevent="handleRightClick">
+            <slot></slot>
+        </div>
         <!-- 下拉列表 -->
         <transition name="m-drop">
             <m-drop
@@ -14,6 +20,8 @@
                 :placement="placement"
                 @mouseenter="handleMouseenter"
                 @mouseleave="handleMouseleave"
+                :parent-width="parentWidth"
+                no-max-height
                 v-transfer-dom >
                 <slot name="list"></slot>
             </m-drop>
@@ -40,7 +48,7 @@ export default {
         // 显示状态
         visible: {
             type: Boolean,
-            default: true
+            default: false
         },
         placement: {
             validator (value) {
@@ -50,12 +58,27 @@ export default {
         },
         trigger: {
             validator (value) {
-                return includes(['click', 'hover', 'custom'], value);
+                return includes(['click', 'hover', 'contextMenu', 'custom'], value);
             },
             default: 'hover'
         },
+        // 是否为分割按钮
+        splitButton: {
+            type: Boolean,
+            default: false
+        },
         // 是否将弹层放置于 body 内
         transfer: {
+            type: Boolean,
+            default: false
+        },
+        // 下拉列表使用父级宽度 也就是按钮宽度
+        parentWidth: {
+            type: Boolean,
+            default: false
+        },
+        // 是否取消
+        noMaxHeight: {
             type: Boolean,
             default: false
         }
@@ -76,7 +99,7 @@ export default {
         listClasses() {
             return [
                 {
-                    [`${wrapClass}-transfer`]: this.transfer
+                    [`${wrapClass}-transfer`]: this.transfer,
                 }
             ];
         }
@@ -86,9 +109,10 @@ export default {
             this.currentVisible = val;
         },
         currentVisible (val) {
-            if (val) {
+            if(val) {
                 this.$refs.drop.update();
-            } else {
+            }
+            else {
                 this.$refs.drop.destroy();
             }
             this.$emit('on-visible-change', val);
@@ -96,10 +120,22 @@ export default {
     },
     mounted() {},
     methods: {
+        // 按钮点击事件
+        handleClick () {
+            if (this.trigger !== 'click' || this.trigger === 'custom') {
+                return false;
+            }
+            this.currentVisible = !this.currentVisible;
+        },
+        handleRightClick () {
+            if (this.trigger !== 'contextMenu' || this.trigger === 'custom') {
+                return false;
+            }
+            this.currentVisible = !this.currentVisible;
+        },
         // 鼠标移入事件
         handleMouseenter () {
-            if (this.trigger === 'custom') return false;
-            if (this.trigger !== 'hover') {
+            if(this.trigger !== 'hover' || this.trigger === 'custom') {
                 return false;
             }
             if (this.timeout) clearTimeout(this.timeout);
@@ -109,11 +145,10 @@ export default {
         },
         // 鼠标离开事件
         handleMouseleave () {
-            if (this.trigger === 'custom') return false;
-            if (this.trigger !== 'hover') {
+            if(this.trigger !== 'hover' || this.trigger === 'custom') {
                 return false;
             }
-            if (this.timeout) {
+            if(this.timeout) {
                 clearTimeout(this.timeout);
                 this.timeout = setTimeout(() => {
                     this.currentVisible = false;

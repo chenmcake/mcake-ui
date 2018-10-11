@@ -1,34 +1,60 @@
 <template>
-    <div class="m-select-dropdown" :class="className"><slot></slot></div>
+    <div :class="wrapClasses" :style="styles"><slot></slot></div>
 </template>
 
 <script>
 import Vue from 'vue';
+import { getStyle } from '../../utils/dom.js';
 // 弹出层控件
 const isServer = Vue.prototype.$isServer;
 const Popper = isServer ? function() {} : require('popper.js/dist/umd/popper.js');
+// 主容器 class
+const wrapClass = 'm-select-dropdown';
 
 // 输出
 export default {
     name: 'MDrop',
     props: {
-        // class名称
-        className: String,
         // 弹出层相对按钮的位置 默认在下面
         placement: {
             type: String,
             default: 'bottom-start'
         },
+        // 使用父级宽度
+        parentWidth: {
+            type: Boolean,
+            default: false
+        },
+        // 取消下拉列表最大高度限制
+        noMaxHeight: {
+            type: Boolean,
+            default: false
+        }
     },
     data() {
         return {
             // 弹出层实例
             popper: null,
+            // 弹出层宽度
+            width: '',
             // 弹出层状态
             popperStatus: false
         }
     },
     computed: {
+        wrapClasses() {
+            return [
+                `${wrapClass}`,
+                {
+                    [`${wrapClass}-no-max-height`]: this.noMaxHeight,
+                }
+            ];
+        },
+        styles () {
+            let style = {};
+            if (this.width) style.width = `${this.width}px`;
+            return style;
+        }
     },
     created() {
         this.$on('on-update-popper', this.update);
@@ -67,8 +93,9 @@ export default {
                     });
                 });
             }
-            // set a height for parent is Modal and Select's width is 100%
-            if (this.$parent.$options.name === 'iSelect') {
+
+            // 处理选择器下拉列表宽度 为 100%
+            if (this.$parent.$options.name === 'MSelect' || this.parentWidth) {
                 this.width = parseInt(getStyle(this.$parent.$el, 'width'));
             }
         },

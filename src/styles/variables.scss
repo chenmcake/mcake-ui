@@ -24,211 +24,214 @@
 // - crumb             面包屑
 
 // base 公共基础
-$css-prefix                      : 'm';
-$font-size-large                 : 16px;
-$font-size-default               : 14px;
-$font-size-small                 : 12px;
-$font-family                     : "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
-$code-family                     : Consolas,Menlo,Courier,monospace;
-$line-height                     : 1.5;
-$font-title-color                : #1A1A1A;
-$font-content-color              : #333333;
-$font-sub-color                  : #666666;
-$font-disabled-color             : #999999;
-$disabled-color                  : #E6E6E6;
-$bg-color                        : #f7f7f7;
-$link-color                      : #007aff;
-$link-active-color               : lighten($link-color, 15%);
-$border-color                    : #CCCCCC;
-$border-light-color              : #ececec;
-$dark-color                      : #464741;
-$box-shadow-color                : rgba(0, 0, 0, .25);
-$border-radius-mini              : 3px;
-$border-radius-small             : 4px;
-$border-radius-default           : 5px;
-$border-radius-large             : 6px;
-$padding-x-small                 : 10px;
-$padding-y-small                 : 8px;
-$padding-x-default               : 15px;
-$padding-y-default               : 12px;
-$padding-x-large                 : 20px;
-$padding-y-large                 : 15px;
+$css-prefix                              : 'm';
+$font-size-large                         : 16px;
+$font-size-default                       : 14px;
+$font-size-small                         : 12px;
+$font-family                             : "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+$code-family                             : Consolas,Menlo,Courier,monospace;
+$line-height                             : 1.5;
+$font-title-color                        : #1A1A1A;
+$font-content-color                      : #333333;
+$font-sub-color                          : #666666;
+$font-disabled-color                     : #999999;
+$disabled-color                          : #E6E6E6;
+$bg-color                                : #f7f7f7;
+$link-color                              : #007aff;
+$link-active-color                       : lighten($link-color, 15%);
+$border-color                            : #CCCCCC;
+$border-light-color                      : #ececec;
+$dark-color                              : #464741;
+$box-shadow-color                        : rgba(0, 0, 0, .25);
+$border-radius-mini                      : 3px;
+$border-radius-small                     : 4px;
+$border-radius-default                   : 5px;
+$border-radius-large                     : 6px;
+$padding-x-small                         : 10px;
+$padding-y-small                         : 8px;
+$padding-x-default                       : 15px;
+$padding-y-default                       : 12px;
+$padding-x-large                         : 20px;
+$padding-y-large                         : 15px;
 
 // 圆角比例 很多已知大小的组件通过该比例生成圆角 如： button、input等 (计算方式为size*$border-radius-ratio)
-$border-radius-ratio             : 0.14;
+$border-radius-ratio                     : 0.14;
 
 // zindex 层级
-$zindex-badge                    : 10;
-$zindex-select-dropdown          : 998;
-$zindex-popper                   : 1024;
+$zindex-badge                            : 10;
+$zindex-select-dropdown                  : 998;
+$zindex-popper                           : 1024;
 
 // colors 颜色主题
-$color-primary                   : #006AFF;
-$color-success                   : #2FBD57;
-$color-info                      : #3388FF;
-$color-warning                   : #FF920F;
-$color-error                     : #F74342;
-$color-noble                     : #9D2FBC;
+$color-primary                           : #006AFF;
+$color-success                           : #2FBD57;
+$color-info                              : #3388FF;
+$color-warning                           : #FF920F;
+$color-error                             : #F74342;
+$color-noble                             : #9D2FBC;
 // 颜色主题集合
-$theme-colors   : (
-    "primary"                    : $color-primary,
-    "success"                    : $color-success,
-    "info"                       : $color-info,
-    "warning"                    : $color-warning,
-    "error"                      : $color-error,
-    "noble"                      : $color-noble,
+$theme-colors: (
+    "primary"                            : $color-primary,
+    "success"                            : $color-success,
+    "info"                               : $color-info,
+    "warning"                            : $color-warning,
+    "error"                              : $color-error,
+    "noble"                              : $color-noble,
 );
 // 改变颜色深度 常用于按钮 输入框 hover active等事件
-$color-gradient                  : 7%;
+$color-gradient                          : 7%;
 
 // animation 动画
-$transition-time                 : .2s;
-$transition-function             : ease-in-out;
+$transition-time                         : .2s;
+$transition-function                     : ease-in-out;
 
 // button 按钮
 // 按钮尺寸 由小到大
-$btn-size-mini                   : 24px;
-$btn-size-small                  : 28px;
-$btn-size-default                : 32px;
-$btn-size-large                  : 40px;
+$btn-size-mini                           : 24px;
+$btn-size-small                          : 28px;
+$btn-size-default                        : 32px;
+$btn-size-large                          : 40px;
 // 按钮字体大小
-$btn-font-size-mini              : $font-size-small;
-$btn-font-size-small             : $font-size-default;
-$btn-font-size-default           : $font-size-default;
-$btn-font-size-large             : $font-size-large;
+$btn-font-size-mini                      : $font-size-small;
+$btn-font-size-small                     : $font-size-default;
+$btn-font-size-default                   : $font-size-default;
+$btn-font-size-large                     : $font-size-large;
 // 按钮圆角大小
-$btn-border-radius-mini          : $border-radius-mini;
-$btn-border-radius-small         : $border-radius-small;
-$btn-border-radius-default       : $border-radius-default;
-$btn-border-radius-large         : $border-radius-large;
+$btn-border-radius-mini                  : $border-radius-mini;
+$btn-border-radius-small                 : $border-radius-small;
+$btn-border-radius-default               : $border-radius-default;
+$btn-border-radius-large                 : $border-radius-large;
 // 按钮禁止状态颜色深度
-$btn-disabled-gradient           : 12%;
+$btn-disabled-gradient                   : 12%;
 // 按钮组
-$btn-group-anti-border-color     : hsla(0,0%,100%,.5);
+$btn-group-anti-border-color             : hsla(0,0%,100%,.5);
 
 // 栅格
-$grid-columns                    : 24;
-$grid-gutter                     : 0;
+$grid-columns                            : 24;
+$grid-gutter                             : 0;
 
 // 屏幕分辨率
-$screen-xs                       : 480px;
-$screen-sm                       : 768px;
-$screen-md                       : 992px;
-$screen-lg                       : 1200px;
-$screen-xl                       : 1920px;
+$screen-xs                               : 480px;
+$screen-sm                               : 768px;
+$screen-md                               : 992px;
+$screen-lg                               : 1200px;
+$screen-xl                               : 1920px;
 
-$screen-xs-min                   : $screen-xs;
-$screen-xs-max                   : ($screen-sm - 1);
-$screen-sm-min                   : $screen-sm;
-$screen-sm-max                   : ($screen-md - 1);
-$screen-md-min                   : $screen-md;
-$screen-md-max                   : ($screen-lg - 1);
-$screen-lg-min                   : $screen-lg;
-$screen-lg-max                   : ($screen-xl - 1);
-$screen-xl-min                   : $screen-xl;
+$screen-xs-min                           : $screen-xs;
+$screen-xs-max                           : ($screen-sm - 1);
+$screen-sm-min                           : $screen-sm;
+$screen-sm-max                           : ($screen-md - 1);
+$screen-md-min                           : $screen-md;
+$screen-md-max                           : ($screen-lg - 1);
+$screen-lg-min                           : $screen-lg;
+$screen-lg-max                           : ($screen-xl - 1);
+$screen-xl-min                           : $screen-xl;
 
 // input 输入框
-$ipt-padding-default             : 10px;
-$ipt-width-default               : 250px;
-$ipt-box-shadow                  : 0 0 5px;
-$ipt-disabled-bg                 : #e6e6e6;
-$ipt-before-after-border         : $border-color;
+$ipt-padding-default                     : 10px;
+$ipt-width-default                       : 250px;
+$ipt-box-shadow                          : 0 0 5px;
+$ipt-disabled-bg                         : #e6e6e6;
+$ipt-before-after-border                 : $border-color;
 // 按钮尺寸 由小到大
-$ipt-size-mini                   : $btn-size-mini;
-$ipt-size-small                  : $btn-size-small;
-$ipt-size-default                : $btn-size-default;
-$ipt-size-large                  : $btn-size-large;
+$ipt-size-mini                           : $btn-size-mini;
+$ipt-size-small                          : $btn-size-small;
+$ipt-size-default                        : $btn-size-default;
+$ipt-size-large                          : $btn-size-large;
 // 按钮字体大小
-$ipt-font-size-mini              : $font-size-small;
-$ipt-font-size-small             : $font-size-default;
-$ipt-font-size-default           : $font-size-default;
-$ipt-font-size-large             : $font-size-large;
+$ipt-font-size-mini                      : $font-size-small;
+$ipt-font-size-small                     : $font-size-default;
+$ipt-font-size-default                   : $font-size-default;
+$ipt-font-size-large                     : $font-size-large;
 
 
 // 单选框以及多选框
-$radio-border-color              : $border-color;
-$radio-size                      : 18px;
-$radio-checked-color             : $color-primary;
+$radio-border-color                      : $border-color;
+$radio-size                              : 18px;
+$radio-checked-color                     : $color-primary;
 
 // switch 开关
-$switch-bg-color                 : #CCC;
+$switch-bg-color                         : #CCC;
 
 // select 选择器
-$select-dropdown-padding-x       : 5px;
-$select-dropdown-border-radius   : $border-radius-default;
+$select-dropdown-padding-x               : 5px;
+$select-dropdown-border-radius           : $border-radius-default;
 
 // rate 评分
-$rate-icon-size                  : 20px;
+$rate-icon-size                          : 20px;
 
 // progress 进度条
-$progress-bar-bg                 : #F3F3F3;
+$progress-bar-bg                         : #F3F3F3;
 
 // alert 警告提示
-$alert-padding-x                 : $padding-x-default;
-$alert-padding-y                 : $padding-y-default;
-$alert-icon-size                 : 18px;
-$alert-icon-size-big             : 28px;
-$alert-border-radius             : $border-radius-default;
-$alert-bg-gradient               : 15%;
+$alert-padding-x                         : $padding-x-default;
+$alert-padding-y                         : $padding-y-default;
+$alert-icon-size                         : 18px;
+$alert-icon-size-big                     : 28px;
+$alert-border-radius                     : $border-radius-default;
+$alert-bg-gradient                       : 15%;
 
 // tooltip 文字提示
-$tooltip-arrow-size              : 8px;
-$tooltip-default-color           : $dark-color;
-$tooltip-border-radius           : $border-radius-default;
+$tooltip-arrow-size                      : 8px;
+$tooltip-default-color                   : $dark-color;
+$tooltip-border-radius                   : $border-radius-default;
 
 // badge 徽章
-$badge-bg-color                  : $color-error;
-$badge-height                    : 22px;
-$badge-padding-x                 : 6px;
-$badge-dot-size                  : 10px;
+$badge-bg-color                          : $color-error;
+$badge-height                            : 22px;
+$badge-padding-x                         : 6px;
+$badge-dot-size                          : 10px;
 
 // tag 标签
-$tag-bg-color                    : $bg-color;
-$tag-border-color                : $border-light-color;
-$tag-padding-x                   : 8px;
+$tag-bg-color                            : $bg-color;
+$tag-border-color                        : $border-light-color;
+$tag-padding-x                           : 8px;
 
 // timeline 时间轴
-$timeline-line-color             : $border-color;
-$timeline-title-font-size        : 20px;
+$timeline-line-color                     : $border-color;
+$timeline-title-font-size                : 20px;
 
 // quote 引用
-$quote-padding-x                 : $padding-x-default;
-$quote-padding-y                 : $padding-y-default;
-$quote-border-left-width         : 5px;
-$quote-default-color             : $dark-color;
-$quote-bg-color                  : $bg-color;
-$quote-border-color              : $border-light-color;
-$quote-border-radius             : $border-radius-default;
+$quote-padding-x                         : $padding-x-default;
+$quote-padding-y                         : $padding-y-default;
+$quote-border-left-width                 : 5px;
+$quote-default-color                     : $dark-color;
+$quote-bg-color                          : $bg-color;
+$quote-border-color                      : $border-light-color;
+$quote-border-radius                     : $border-radius-default;
 
 // avatar 头像
-$avatar-bg-color                 : #CCC;
+$avatar-bg-color                         : #CCC;
 
-$avatar-size-mini                : 24px;
-$avatar-size-small               : 32px;
-$avatar-size-default             : 48px;
-$avatar-size-large               : 64px;
+$avatar-size-mini                        : 24px;
+$avatar-size-small                       : 32px;
+$avatar-size-default                     : 48px;
+$avatar-size-large                       : 64px;
 
 // collapse 折叠面板
-$collapse-bg-color               : $bg-color;
-$collapse-border-color           : $border-light-color;
-$collapse-transition-duration    : .2s;
-$collapse-transition-function    : ease-in-out;
+$collapse-bg-color                       : $bg-color;
+$collapse-border-color                   : $border-light-color;
+$collapse-transition-duration            : .2s;
+$collapse-transition-function            : ease-in-out;
 
 // card 卡片
-$card-padding-x                  : $padding-x-default;
-$card-padding-y                  : $padding-y-default;
-$card-border-color               : $border-light-color;
-$card-loading-color              : #F3F3F3;
-$card-foot-color                 : #fafafa;
+$card-padding-x                          : $padding-x-default;
+$card-padding-y                          : $padding-y-default;
+$card-border-color                       : $border-light-color;
+$card-loading-color                      : #F3F3F3;
+$card-foot-color                         : #fafafa;
 
 // divider 分割线
-$divider-bg-color                : $border-light-color;
+$divider-bg-color                        : $border-light-color;
 
 // dropdown 下拉菜单
-$dropdown-menu-min-width         : 106px; // 默认4个字按钮宽度
-$dropdown-item-padding-x         : 7px;
-$dropdown-item-padding-y         : 15px;
+$dropdown-menu-min-width                 : 106px; // 默认4个字按钮宽度
+$dropdown-item-padding-x                 : 7px;
+$dropdown-item-padding-y                 : 15px;
+$dropdown-item-hover-bg                  : #F3F3F3;
+$dropdown-item-divided-border-color      : $border-light-color;
+$dropdown-item-disabled-color            : #BBBEC4;
 
 // crumb 面包屑
-$crumb-text-color                : #666;
-$crumb-separator-color           : #CCC;
+$crumb-text-color                        : #666;
+$crumb-separator-color                   : #CCC;
