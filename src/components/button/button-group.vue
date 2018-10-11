@@ -5,7 +5,8 @@
 </template>
 
 <script>
-
+// 公共方法
+import { includes } from '../../utils/base';
 // icon class前缀
 const prefixClass = 'm-btn-group';
 // 输出
@@ -14,6 +15,20 @@ export default {
     name: 'MButtonGroup',
     // 属性
     props: {
+        // 大小尺寸
+        size: {
+            type: String,
+            validator(value) {
+                return includes(['mini', 'small', 'default', 'large'], value);
+            }
+        },
+        // 形状
+        shape: {
+            type: String,
+            validator(value) {
+                return includes(['fillet', 'pill', 'square', 'box', 'circle'], value);
+            }
+        },
         // 是否为垂直的
         vertical: {
             type: Boolean,
@@ -29,8 +44,10 @@ export default {
                 `${prefixClass}`,
                 // 配置class
                 {
-                    // 默认为横向的
-                    [`${prefixClass}-default`]: !this.vertical,
+                    // 尺寸
+                    [`${prefixClass}-${this.size}`]: !!this.size,
+                    // 形状
+                    [`${prefixClass}-${this.shape}`]: !!this.shape,
                     // 是否为垂直的
                     [`${prefixClass}-vertical`]: this.vertical,
                 }

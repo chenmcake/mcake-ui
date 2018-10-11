@@ -10,7 +10,13 @@
         margin-bottom: 10px;
     }
 }
-
+.demo-item-tit {
+    h3 {
+        strong {
+            font-size: 14px;
+        }
+    }
+}
 // 垂直的
 .demo-vertical-item {
     .demo-item-box {
@@ -243,7 +249,7 @@
 
         <div class="demo-item demo-diy-item">
             <div class="demo-item-tit">
-                <h3>按钮组</h3>
+                <h3>按钮组 - 形状</h3>
             </div>
             <div class="demo-item-cont">
                 <div class="demo-item-box">
@@ -255,43 +261,43 @@
                     </m-button-group>
                 </div>
                 <div class="demo-item-box">
-                    <m-button-group>
-                        <m-button type="primary" shape="fillet">OK</m-button>
-                        <m-button type="primary" shape="fillet">OK</m-button>
-                        <m-button type="primary" shape="fillet">OK</m-button>
-                        <m-button type="primary" shape="fillet">OK</m-button>
+                    <m-button-group shape="fillet">
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
                     </m-button-group>
                 </div>
                 <div class="demo-item-box">
-                    <m-button-group>
-                        <m-button type="primary" shape="pill">OK</m-button>
-                        <m-button type="primary" shape="pill">OK</m-button>
-                        <m-button type="primary" shape="pill">OK</m-button>
-                        <m-button type="primary" shape="pill">OK</m-button>
+                    <m-button-group shape="pill">
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
                     </m-button-group>
                 </div>
                 <div class="demo-item-box">
-                    <m-button-group>
-                        <m-button type="primary" shape="square">OK</m-button>
-                        <m-button type="primary" shape="square">OK</m-button>
-                        <m-button type="primary" shape="square">OK</m-button>
-                        <m-button type="primary" shape="square">OK</m-button>
+                    <m-button-group shape="square">
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
                     </m-button-group>
                 </div>
                 <div class="demo-item-box">
-                    <m-button-group>
-                        <m-button type="primary" shape="box">OK</m-button>
-                        <m-button type="primary" shape="box">OK</m-button>
-                        <m-button type="primary" shape="box">OK</m-button>
-                        <m-button type="primary" shape="box">OK</m-button>
+                    <m-button-group shape="box">
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
                     </m-button-group>
                 </div>
                 <div class="demo-item-box">
-                    <m-button-group>
-                        <m-button type="primary" shape="circle">OK</m-button>
-                        <m-button type="primary" shape="circle">OK</m-button>
-                        <m-button type="primary" shape="circle">OK</m-button>
-                        <m-button type="primary" shape="circle">OK</m-button>
+                    <m-button-group shape="circle">
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
                     </m-button-group>
                 </div>
 
@@ -304,43 +310,43 @@
                     </m-button-group>
                 </div>
                 <div class="demo-item-box">
-                    <m-button-group>
-                        <m-button type="primary" shape="fillet" bordered>OK</m-button>
-                        <m-button type="primary" shape="fillet" bordered>OK</m-button>
-                        <m-button type="primary" shape="fillet" bordered>OK</m-button>
-                        <m-button type="primary" shape="fillet" bordered>OK</m-button>
+                    <m-button-group shape="fillet">
+                        <m-button type="primary" bordered>OK</m-button>
+                        <m-button type="primary" bordered>OK</m-button>
+                        <m-button type="primary" bordered>OK</m-button>
+                        <m-button type="primary" bordered>OK</m-button>
                     </m-button-group>
                 </div>
                 <div class="demo-item-box">
-                    <m-button-group>
-                        <m-button type="primary" shape="pill" bordered>OK</m-button>
-                        <m-button type="primary" shape="pill" bordered>OK</m-button>
-                        <m-button type="primary" shape="pill" bordered>OK</m-button>
-                        <m-button type="primary" shape="pill" bordered>OK</m-button>
+                    <m-button-group shape="pill">
+                        <m-button type="primary" bordered>OK</m-button>
+                        <m-button type="primary" bordered>OK</m-button>
+                        <m-button type="primary" bordered>OK</m-button>
+                        <m-button type="primary" bordered>OK</m-button>
                     </m-button-group>
                 </div>
                 <div class="demo-item-box">
-                    <m-button-group>
-                        <m-button type="primary" shape="square" bordered>OK</m-button>
-                        <m-button type="primary" shape="square" bordered>OK</m-button>
-                        <m-button type="primary" shape="square" bordered>OK</m-button>
-                        <m-button type="primary" shape="square" bordered>OK</m-button>
+                    <m-button-group shape="square">
+                        <m-button type="primary" bordered>OK</m-button>
+                        <m-button type="primary" bordered>OK</m-button>
+                        <m-button type="primary" bordered>OK</m-button>
+                        <m-button type="primary" bordered>OK</m-button>
                     </m-button-group>
                 </div>
                 <div class="demo-item-box">
-                    <m-button-group>
-                        <m-button type="primary" shape="box" bordered>OK</m-button>
-                        <m-button type="primary" shape="box" bordered>OK</m-button>
-                        <m-button type="primary" shape="box" bordered>OK</m-button>
-                        <m-button type="primary" shape="box" bordered>OK</m-button>
+                    <m-button-group shape="box">
+                        <m-button type="primary" bordered>OK</m-button>
+                        <m-button type="primary" bordered>OK</m-button>
+                        <m-button type="primary" bordered>OK</m-button>
+                        <m-button type="primary" bordered>OK</m-button>
                     </m-button-group>
                 </div>
                 <div class="demo-item-box">
-                    <m-button-group>
-                        <m-button type="primary" shape="circle" bordered>OK</m-button>
-                        <m-button type="primary" shape="circle" bordered>OK</m-button>
-                        <m-button type="primary" shape="circle" bordered>OK</m-button>
-                        <m-button type="primary" shape="circle" bordered>OK</m-button>
+                    <m-button-group shape="circle">
+                        <m-button type="primary" bordered>OK</m-button>
+                        <m-button type="primary" bordered>OK</m-button>
+                        <m-button type="primary" bordered>OK</m-button>
+                        <m-button type="primary" bordered>OK</m-button>
                     </m-button-group>
                 </div>
             </div>
@@ -360,43 +366,43 @@
                     </m-button-group>
                 </div>
                 <div class="demo-item-box">
-                    <m-button-group vertical>
-                        <m-button type="primary" shape="fillet">OK</m-button>
-                        <m-button type="primary" shape="fillet">OK</m-button>
-                        <m-button type="primary" shape="fillet">OK</m-button>
-                        <m-button type="primary" shape="fillet">OK</m-button>
+                    <m-button-group shape="fillet" vertical>
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
                     </m-button-group>
                 </div>
                 <div class="demo-item-box">
-                    <m-button-group vertical>
-                        <m-button type="primary" shape="pill">OK</m-button>
-                        <m-button type="primary" shape="pill">OK</m-button>
-                        <m-button type="primary" shape="pill">OK</m-button>
-                        <m-button type="primary" shape="pill">OK</m-button>
+                    <m-button-group shape="pill" vertical>
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
                     </m-button-group>
                 </div>
                 <div class="demo-item-box">
-                    <m-button-group vertical>
-                        <m-button type="primary" shape="square">OK</m-button>
-                        <m-button type="primary" shape="square">OK</m-button>
-                        <m-button type="primary" shape="square">OK</m-button>
-                        <m-button type="primary" shape="square">OK</m-button>
+                    <m-button-group shape="square" vertical>
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
                     </m-button-group>
                 </div>
                 <div class="demo-item-box">
-                    <m-button-group vertical>
-                        <m-button type="primary" shape="box">OK</m-button>
-                        <m-button type="primary" shape="box">OK</m-button>
-                        <m-button type="primary" shape="box">OK</m-button>
-                        <m-button type="primary" shape="box">OK</m-button>
+                    <m-button-group shape="box" vertical>
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
                     </m-button-group>
                 </div>
                 <div class="demo-item-box">
-                    <m-button-group vertical>
-                        <m-button type="primary" shape="circle">OK</m-button>
-                        <m-button type="primary" shape="circle">OK</m-button>
-                        <m-button type="primary" shape="circle">OK</m-button>
-                        <m-button type="primary" shape="circle">OK</m-button>
+                    <m-button-group shape="circle" vertical>
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
+                        <m-button type="primary">OK</m-button>
                     </m-button-group>
                 </div>
 
@@ -411,46 +417,70 @@
                     </m-button-group>
                 </div>
                 <div class="demo-item-box">
-                    <m-button-group vertical>
-                        <m-button type="primary" shape="fillet" bordered>OK</m-button>
-                        <m-button type="primary" shape="fillet" bordered>OK</m-button>
-                        <m-button type="primary" shape="fillet" bordered>OK</m-button>
-                        <m-button type="primary" shape="fillet" bordered>OK</m-button>
+                    <m-button-group shape="fillet" vertical>
+                        <m-button type="primary" bordered>OK</m-button>
+                        <m-button type="primary" bordered>OK</m-button>
+                        <m-button type="primary" bordered>OK</m-button>
+                        <m-button type="primary" bordered>OK</m-button>
                     </m-button-group>
                 </div>
                 <div class="demo-item-box">
-                    <m-button-group vertical>
-                        <m-button type="primary" shape="pill" bordered>OK</m-button>
-                        <m-button type="primary" shape="pill" bordered>OK</m-button>
-                        <m-button type="primary" shape="pill" bordered>OK</m-button>
-                        <m-button type="primary" shape="pill" bordered>OK</m-button>
+                    <m-button-group shape="pill" vertical>
+                        <m-button type="primary" bordered>OK</m-button>
+                        <m-button type="primary" bordered>OK</m-button>
+                        <m-button type="primary" bordered>OK</m-button>
+                        <m-button type="primary" bordered>OK</m-button>
                     </m-button-group>
                 </div>
                 <div class="demo-item-box">
-                    <m-button-group vertical>
-                        <m-button type="primary" shape="square" bordered>OK</m-button>
-                        <m-button type="primary" shape="square" bordered>OK</m-button>
-                        <m-button type="primary" shape="square" bordered>OK</m-button>
-                        <m-button type="primary" shape="square" bordered>OK</m-button>
+                    <m-button-group shape="square" vertical>
+                        <m-button type="primary" bordered>OK</m-button>
+                        <m-button type="primary" bordered>OK</m-button>
+                        <m-button type="primary" bordered>OK</m-button>
+                        <m-button type="primary" bordered>OK</m-button>
                     </m-button-group>
                 </div>
                 <div class="demo-item-box">
-                    <m-button-group vertical>
-                        <m-button type="primary" shape="box" bordered>OK</m-button>
-                        <m-button type="primary" shape="box" bordered>OK</m-button>
-                        <m-button type="primary" shape="box" bordered>OK</m-button>
-                        <m-button type="primary" shape="box" bordered>OK</m-button>
+                    <m-button-group shape="box" vertical>
+                        <m-button type="primary" bordered>OK</m-button>
+                        <m-button type="primary" bordered>OK</m-button>
+                        <m-button type="primary" bordered>OK</m-button>
+                        <m-button type="primary" bordered>OK</m-button>
                     </m-button-group>
                 </div>
                 <div class="demo-item-box">
-                    <m-button-group vertical>
-                        <m-button type="primary" shape="circle" bordered>OK</m-button>
-                        <m-button type="primary" shape="circle" bordered>OK</m-button>
-                        <m-button type="primary" shape="circle" bordered>OK</m-button>
-                        <m-button type="primary" shape="circle" bordered>OK</m-button>
+                    <m-button-group shape="circle" vertical>
+                        <m-button type="primary" bordered>OK</m-button>
+                        <m-button type="primary" bordered>OK</m-button>
+                        <m-button type="primary" bordered>OK</m-button>
+                        <m-button type="primary" bordered>OK</m-button>
                     </m-button-group>
                 </div>
             </div> <!-- demo-item-cont 结束 -->
+        </div> <!-- demo-item 结束 -->
+
+
+        <div class="demo-item demo-diy-item">
+            <div class="demo-item-tit">
+                <h3>按钮组 - 组合 <strong>你也可以不设置button-group的形状 直接通过设置按钮形状来进行拼接</strong> </h3>
+            </div>
+            <div class="demo-item-cont">
+                <div class="demo-item-box">
+                    <m-button-group>
+                        <m-button type="primary">下拉菜单</m-button>
+                        <m-button type="primary" icon="bottom" shape="square"></m-button>
+                    </m-button-group>
+                    <m-button-group>
+                        <m-button type="primary" shape="fillet">下拉菜单</m-button>
+                        <m-button type="primary" icon="bottom" shape="box"></m-button>
+                    </m-button-group>
+
+                    <m-button-group>
+                        <m-button type="primary" shape="pill">下拉菜单</m-button>
+                        <m-button type="primary" icon="bottom" shape="circle"></m-button>
+                    </m-button-group>
+                </div>
+            </div>
         </div> <!-- demo-item 结束 -->
 
     </div>

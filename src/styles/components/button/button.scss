@@ -153,49 +153,102 @@ $btn-group-prefix: #{$btn-prefix}-group;
 
 /* 按钮组 */
 .#{$btn-group-prefix} {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+
+    @include btn-group-size($btn-size-default, $btn-font-size-default);
+}
+
+// 按钮组 - 正方按钮
+.#{$btn-group-prefix}-circle,
+.#{$btn-group-prefix}-box,
+.#{$btn-group-prefix}-square{
+    >.#{$btn-prefix}{
+        padding:0 !important;
+    }
+}
+
+// 按钮组 - 胶囊按钮
+.#{$btn-group-prefix}-pill {
+    >.#{$btn-prefix}{
+        &:first-child,
+        &:last-child {
+            border-radius: 200px;
+        }
+    }
+}
+// 按钮组 - 圆形按钮
+.#{$btn-group-prefix}-circle {
+    >.#{$btn-prefix}{
+        &:first-child,
+        &:last-child {
+            border-radius: 100%;
+        }
+    }
+}
+
+// 按钮尺寸 和 形状
+.#{$btn-group-prefix}-mini {
+    @include btn-group-size($btn-size-mini, $btn-font-size-mini);
+}
+.#{$btn-group-prefix}-small {
+    @include btn-group-size($btn-size-small, $btn-font-size-small);
+}
+.#{$btn-group-prefix}-large {
+    @include btn-group-size($btn-size-large, $btn-font-size-large);
+}
+
+
+// 横向按钮组
+.#{$btn-group-prefix}:not(.#{$btn-group-prefix}-vertical) {
     @include clear;
 
     >.#{$btn-prefix}{
         float: left;
-    }
-}
-// 横向按钮组
-.#{$btn-group-prefix}-default {
-    >.#{$btn-prefix}{
-        &:first-child{
-            border-top-right-radius:0;
-            border-bottom-right-radius:0;
-        }
-        &:last-child{
-            border-top-left-radius:0;
-            border-bottom-left-radius:0;
-        }
-        &:not(:first-child):not(:last-child){
-            border-radius: 0;
+
+        &:not(:last-child):not(.bordered) {
+            border-right-color: $btn-group-anti-border-color;
         }
 
+        &:first-child{
+            border-top-right-radius: 0 !important;
+            border-bottom-right-radius: 0 !important;
+        }
+        &:last-child{
+            border-top-left-radius: 0 !important;
+            border-bottom-left-radius: 0 !important;
+        }
+
+        // 处理边框重叠2px问题
+        & + .#{$btn-prefix},
         & + .bordered {
-            border-left:0;
+            border-left-width:0;
         }
     }
 }
+
 
 // 纵向按钮组
 .#{$btn-group-prefix}-vertical {
-    display: inline-block;
 
     >.#{$btn-prefix}{
         display: block;
-        float: none;
+
+        &:not(:last-child):not(.bordered) {
+            border-bottom-color: $btn-group-anti-border-color;
+        }
 
         &:first-child{
-            border-bottom-left-radius:0;
-            border-bottom-right-radius:0;
+            border-bottom-left-radius: 0 !important;
+            border-bottom-right-radius: 0 !important;
         }
         &:last-child{
-            border-top-left-radius:0;
-            border-top-right-radius:0;
+            border-top-left-radius: 0 !important;
+            border-top-right-radius: 0 !important;
         }
+
+        // 处理边框重叠2px问题
         &:not(:first-child):not(:last-child){
             border-radius: 0;
         }
@@ -205,3 +258,4 @@ $btn-group-prefix: #{$btn-prefix}-group;
         }
     }
 }
+

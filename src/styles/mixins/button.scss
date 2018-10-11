@@ -1,4 +1,4 @@
-// 设置按钮的尺寸
+// 设置按钮的尺寸 和 形状
 @mixin btn-size($size, $font-size) {
     height: $size;
     padding: 0 ($size - 2)/2;
@@ -13,6 +13,34 @@
     &.#{$btn-prefix}-box,
     &.#{$btn-prefix}-square{
         width: $size;
+    }
+}
+
+// 设置按钮组中按钮的尺寸 和 形状
+@mixin btn-group-size($size, $font-size) {
+    >.#{$btn-prefix}{
+        height: $size;
+        padding: 0 ($size - 2)/2;
+        font-size: $font-size;
+    }
+
+    // 长方
+    &.#{$btn-group-prefix}-fillet,
+    &.#{$btn-group-prefix}-box {
+        >.#{$btn-prefix}{
+            &:first-child,
+            &:last-child {
+                border-radius: round($size * $border-radius-ratio);
+            }
+        }
+    }
+    // 正方按钮
+    &.#{$btn-group-prefix}-circle,
+    &.#{$btn-group-prefix}-box,
+    &.#{$btn-group-prefix}-square{
+        >.#{$btn-prefix}{
+            width: $size;
+        }
     }
 }
 

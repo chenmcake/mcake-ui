@@ -23,7 +23,7 @@ export default {
         type: {
             type: String,
             validator(value) {
-                return includes(['primary', 'success', 'info', 'warning', 'error', 'noble', 'white', 'text', 'default'], value);
+                return includes(['primary', 'success', 'info', 'warning', 'error', 'noble', 'white', 'text'], value);
             }
         },
         // 大小尺寸
@@ -37,7 +37,7 @@ export default {
         shape: {
             type: String,
             validator(value) {
-                return includes(['fillet', 'pill', 'square', 'box', 'circle', 'default'], value);
+                return includes(['fillet', 'pill', 'square', 'box', 'circle'], value);
             }
         },
         // 按钮HTML 类型
