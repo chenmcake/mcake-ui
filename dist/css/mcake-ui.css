@@ -1,9 +1,9 @@
 @charset "UTF-8";
 /*!
- * Mcake v1.3.0
+ * Mcake UI v1.0.0
  * author：淡淡的月饼
- * Create time：2017.9.18
- * Update time：2017.9.18
+ * Create time：2018.5.1
+ * Update time：2018.10.12
  */
 *,
 *:before,
@@ -134,6 +134,104 @@ a[disabled] {
   white-space: nowrap;
 }
 
+/* 文字色彩 和 背景色彩 */
+.m-text-primary {
+  color: #006AFF !important;
+}
+
+.m-bg-primary {
+  background-color: #006AFF !important;
+}
+
+.m-bg-primary-light {
+  background-color: #247fff !important;
+}
+
+.m-bg-primary-dark {
+  background-color: #005bdb !important;
+}
+
+.m-text-success {
+  color: #2FBD57 !important;
+}
+
+.m-bg-success {
+  background-color: #2FBD57 !important;
+}
+
+.m-bg-success-light {
+  background-color: #40d069 !important;
+}
+
+.m-bg-success-dark {
+  background-color: #28a04a !important;
+}
+
+.m-text-info {
+  color: #3388FF !important;
+}
+
+.m-bg-info {
+  background-color: #3388FF !important;
+}
+
+.m-bg-info-light {
+  background-color: #579dff !important;
+}
+
+.m-bg-info-dark {
+  background-color: #0f73ff !important;
+}
+
+.m-text-warning {
+  color: #FF920F !important;
+}
+
+.m-bg-warning {
+  background-color: #FF920F !important;
+}
+
+.m-bg-warning-light {
+  background-color: #ffa233 !important;
+}
+
+.m-bg-warning-dark {
+  background-color: #ea8000 !important;
+}
+
+.m-text-error {
+  color: #F74342 !important;
+}
+
+.m-bg-error {
+  background-color: #F74342 !important;
+}
+
+.m-bg-error-light {
+  background-color: #f86564 !important;
+}
+
+.m-bg-error-dark {
+  background-color: #f62120 !important;
+}
+
+.m-text-noble {
+  color: #9D2FBC !important;
+}
+
+.m-bg-noble {
+  background-color: #9D2FBC !important;
+}
+
+.m-bg-noble-light {
+  background-color: #b040cf !important;
+}
+
+.m-bg-noble-dark {
+  background-color: #85289f !important;
+}
+
+/* animate 动画 */
 @-webkit-keyframes loading-opacity {
   0%, to {
     opacity: .45;
@@ -142,7 +240,6 @@ a[disabled] {
     opacity: 1;
   }
 }
-
 @keyframes loading-opacity {
   0%, to {
     opacity: .45;
@@ -5504,6 +5601,10 @@ a[disabled] {
   display: inline-block;
 }
 
+.m-dropdown .m-dropdown {
+  display: block;
+}
+
 .m-dropdown-rel {
   position: relative;
 }
@@ -5532,13 +5633,13 @@ a[disabled] {
   background-color: #F3F3F3;
 }
 
-.m-dropdown-item[disabled], .m-dropdown-item[disabled].hover, .m-dropdown-item[disabled]:hover, .m-dropdown-item[disabled].selected {
+.m-dropdown-item.disabled, .m-dropdown-item.disabled.hover, .m-dropdown-item.disabled:hover, .m-dropdown-item.disabled.selected {
   cursor: not-allowed;
   color: #BBBEC4;
   background-color: #FFF;
 }
 
-.m-dropdown-item[divided] {
+.m-dropdown-item.divided {
   margin-top: 5px;
   border-top: 1px solid #ececec;
 }
