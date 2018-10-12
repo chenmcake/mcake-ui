@@ -1,0 +1,8 @@
+// 文字颜色风格
+@mixin text-color($text-color) {
+    color: $text-color !important;
+}
+// 背景颜色风格
+@mixin bg-color($bg-color) {
+    background-color: $bg-color !important;
+}

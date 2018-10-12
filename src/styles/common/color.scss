@@ -1,0 +1,23 @@
+/* 文字色彩 和 背景色彩 */
+$text-prefix                   : #{$css-prefix}-text;
+$bg-prefix                     : #{$css-prefix}-bg;
+
+// 生成色彩主题
+@each $theme, $color in $theme-colors {
+    // 生成文字色彩主题
+    .#{$text-prefix}-#{$theme} {
+        @include text-color($color);
+    }
+
+    // 生成背景色彩主题
+    .#{$bg-prefix}-#{$theme} {
+        @include bg-color($color);
+    }
+    .#{$bg-prefix}-#{$theme}-light {
+        @include bg-color(lighten($color, $color-gradient));
+    }
+    .#{$bg-prefix}-#{$theme}-dark {
+        @include bg-color(darken($color, $color-gradient));
+    }
+
+}
