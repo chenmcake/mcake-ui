@@ -1,6 +1,6 @@
 {
   "name": "mcake-ui",
-  "version": "1.0.0",
+  "version": "1.0.0.181012_alpha",
   "description": "Mcake UI 是一个基于Vue的前端UI框架，让Web开发变得更简单！",
   "main": "dist/mcake.js",
   "scripts": {
