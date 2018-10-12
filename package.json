@@ -23,6 +23,10 @@
   ],
   "author": "淡淡的月饼",
   "license": "ISC",
+  "dependencies": {
+    "popper.js": "^1.14.4",
+    "v-click-outside-x": "^3.4.0"
+  },
   "devDependencies": {
     "autoprefixer": "^7.1.4",
     "babel-core": "^6.26.0",
@@ -53,8 +57,5 @@
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.8.2",
     "webpack-merge": "^4.1.0"
-  },
-  "dependencies": {
-    "popper.js": "^1.14.4"
   }
 }
