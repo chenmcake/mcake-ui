@@ -34,6 +34,7 @@
         color: #fff;
         cursor: pointer;
         text-align: center;
+        background-color: #333;
         i {
             margin-top: -3px;
             font-size: 18px;
@@ -80,11 +81,13 @@
             <div class="demo-head-right">
                 <span class="color-tit">换个颜色试试：</span>
                 <ul>
-                    <li v-for="(color, i) in colors"
-                        class="color-item"
-                        :style="{'background': color.value}"
+                    <li v-for="color in colors"
+                        :class="[
+                            'color-item',
+                            `m-bg-${color}`
+                        ]"
                         @click="setColor(color)">
-                        <m-icon v-if="color.name == nowColor" type="success"></m-icon>
+                        <m-icon v-if="color == nowColor" type="success"></m-icon>
                     </li>
                 </ul>
             </div>
@@ -102,7 +105,10 @@
                     <div
                         v-for="(icon, j) in item.data"
                         class="icon-box">
-                        <p :style="iconStyle"><m-icon :type="icon.value"></m-icon></p>
+                        <p>
+                            <m-icon v-if="nowColor !== 'default'" :type="icon.value" :theme="nowColor"></m-icon>
+                            <m-icon v-else :type="icon.value"></m-icon>
+                        </p>
                         <h4 class="omiss">{{icon.value}}</h4>
                     </div> <!-- icon-box 结束 -->
                 </div> <!-- icon-item-cont 结束 -->
@@ -114,36 +120,7 @@
 import icons from '../common/icons.js';
 
 // 主题颜色
-const colors = [
-    {
-        name: "default",
-        value: "#333"
-    },
-    {
-        name: "primary",
-        value: "#007aff"
-    },
-    {
-        name: "success",
-        value: "#4cd964"
-    },
-        {
-        name: "info",
-        value: "#34aadc"
-    },
-        {
-        name: "warning",
-        value: "#FF9F19"
-    },
-        {
-        name: "error",
-        value: "#ff3b30"
-    },
-        {
-        name: "noble",
-        value: "#5856d6"
-    },
-];
+const colors = ["default", "primary", "success", "info", "warning", "error", "noble"];
 
 export default {
     // 数据
@@ -155,8 +132,6 @@ export default {
             colors,
             // 当前选中颜色
             nowColor: 'default',
-            // 图标样式
-            iconStyle: {}
         }
     },
     computed: {
@@ -171,10 +146,7 @@ export default {
     },
     methods: {
         setColor(color) {
-            this.nowColor = color.name;
-            this.iconStyle = {
-                'color': color.value
-            };
+            this.nowColor = color;
         }
     }
 }

@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import { includes } from '../../utils/base.js';
 // icon class前缀
 const prefixClass = 'm-i';
 // 输出
@@ -15,6 +16,13 @@ export default {
         type: String,
         // 字体大小
         size: [Number, String],
+        // 主题
+        theme: {
+            type: String,
+            validator(value) {
+                return includes(['primary', 'success', 'info', 'warning', 'error', 'noble'], value);
+            }
+        },
         // 颜色
         color: String,
         // 行高
@@ -24,7 +32,14 @@ export default {
     computed: {
         // 图标class
         classes () {
-            return prefixClass + '-' + this.type;
+            return [
+                {
+                    // 图标类型 用于控制显示哪个图标
+                    [`${prefixClass}-${this.type}`]: !!this.type,
+                    // 图标颜色主题
+                    [`m-text-${this.theme}`]: !!this.theme,
+                }
+            ]
         },
         // 图标样式
         styles () {
