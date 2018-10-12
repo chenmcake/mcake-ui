@@ -14,8 +14,8 @@
 .demo-item-box {
     margin-bottom: 15px;
 }
-.demo-diy-item {
-    .m-dropdown {
+.demo-item-box {
+    >.m-dropdown {
         margin-left: 10px;
         margin-right: 40px;
     }
@@ -131,10 +131,10 @@
                             <m-icon type="bottom"></m-icon>
                         </a>
                         <m-dropdown-menu slot="list">
-                            <m-dropdown-item>涮羊肉</m-dropdown-item>
-                            <m-dropdown-item>肉夹馍</m-dropdown-item>
-                            <m-dropdown-item>山西油泼面</m-dropdown-item>
-                            <m-dropdown-item>涮羊肉</m-dropdown-item>
+                            <m-dropdown-item name="涮羊肉">涮羊肉</m-dropdown-item>
+                            <m-dropdown-item name="肉夹馍">肉夹馍</m-dropdown-item>
+                            <m-dropdown-item name="山西油泼面">山西油泼面</m-dropdown-item>
+                            <m-dropdown-item name="涮羊肉">涮羊肉</m-dropdown-item>
                         </m-dropdown-menu>
                     </m-dropdown>
                     <m-dropdown trigger="click">
@@ -143,10 +143,10 @@
                             <m-icon type="bottom"></m-icon>
                         </a>
                         <m-dropdown-menu slot="list">
-                            <m-dropdown-item>涮羊肉</m-dropdown-item>
-                            <m-dropdown-item>肉夹馍</m-dropdown-item>
-                            <m-dropdown-item>山西油泼面</m-dropdown-item>
-                            <m-dropdown-item>涮羊肉</m-dropdown-item>
+                            <m-dropdown-item name="涮羊肉">涮羊肉</m-dropdown-item>
+                            <m-dropdown-item name="肉夹馍">肉夹馍</m-dropdown-item>
+                            <m-dropdown-item name="山西油泼面">山西油泼面</m-dropdown-item>
+                            <m-dropdown-item name="涮羊肉">涮羊肉</m-dropdown-item>
                         </m-dropdown-menu>
                     </m-dropdown>
                     <m-dropdown trigger="contextMenu">
@@ -155,10 +155,10 @@
                             <m-icon type="bottom"></m-icon>
                         </a>
                         <m-dropdown-menu slot="list">
-                            <m-dropdown-item>涮羊肉</m-dropdown-item>
-                            <m-dropdown-item>肉夹馍</m-dropdown-item>
-                            <m-dropdown-item>山西油泼面</m-dropdown-item>
-                            <m-dropdown-item>涮羊肉</m-dropdown-item>
+                            <m-dropdown-item name="涮羊肉">涮羊肉</m-dropdown-item>
+                            <m-dropdown-item name="肉夹馍">肉夹馍</m-dropdown-item>
+                            <m-dropdown-item name="山西油泼面">山西油泼面</m-dropdown-item>
+                            <m-dropdown-item name="涮羊肉">涮羊肉</m-dropdown-item>
                         </m-dropdown-menu>
                     </m-dropdown>
                     <m-dropdown trigger="custom" :visible="visible">
@@ -172,6 +172,36 @@
                                 <m-button type="primary" @click="handleClose">关闭</m-button>
                             </div>
                         </div>
+                    </m-dropdown>
+                </div> <!-- demo-item-box 结束 -->
+            </div> <!-- demo-item-cont 结束 -->
+        </div> <!-- demo-item 结束 -->
+
+        <div class="demo-item demo-diy-item">
+            <div class="demo-item-tit">
+                <h3>嵌套下拉菜单</h3>
+            </div>
+            <div class="demo-item-cont">
+                <div class="demo-item-box">
+                    <m-dropdown trigger="click" @on-click="handleClick">
+                        <m-button type="primary" shape="fillet">
+                            中国美食
+                            <m-icon type="bottom"></m-icon>
+                        </m-button>
+                        <m-dropdown-menu slot="list">
+                            <m-dropdown-item name="鲁菜">鲁菜</m-dropdown-item>
+                            <m-dropdown placement="right-start" trigger="click">
+                                <m-dropdown-item name="川菜">川菜<m-icon type="right"></m-icon></m-dropdown-item>
+                                <m-dropdown-menu slot="list">
+                                    <m-dropdown-item name="鱼香肉丝">鱼香肉丝</m-dropdown-item>
+                                    <m-dropdown-item name="水煮肉片">水煮肉片</m-dropdown-item>
+                                    <m-dropdown-item name="辣子鸡丁">辣子鸡丁</m-dropdown-item>
+                                    <m-dropdown-item name="东坡肘子">东坡肘子</m-dropdown-item>
+                                </m-dropdown-menu>
+                            </m-dropdown>
+                            <m-dropdown-item name="粤菜">粤菜</m-dropdown-item>
+                            <m-dropdown-item name="苏菜">苏菜</m-dropdown-item>
+                        </m-dropdown-menu>
                     </m-dropdown>
                 </div> <!-- demo-item-box 结束 -->
             </div> <!-- demo-item-cont 结束 -->
@@ -194,6 +224,9 @@ export default {
         // 关闭下拉菜单
         handleClose() {
             this.visible = false;
+        },
+        handleClick(name) {
+            console.log(name)
         }
 
     }

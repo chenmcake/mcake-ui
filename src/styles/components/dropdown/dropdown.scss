@@ -5,6 +5,11 @@ $dropdown-prefix                   : #{$css-prefix}-dropdown;
 .#{$dropdown-prefix} {
     position: relative;
     display: inline-block;
+
+    // 嵌套下拉菜单
+    .#{$dropdown-prefix} {
+        display: block;
+    }
 }
 
 // 按钮父容器
@@ -41,16 +46,16 @@ $dropdown-prefix                   : #{$css-prefix}-dropdown;
     }
 
     // 禁止状态
-    &[disabled],
-    &[disabled].hover,
-    &[disabled]:hover,
-    &[disabled].selected {
+    &.disabled,
+    &.disabled.hover,
+    &.disabled:hover,
+    &.disabled.selected {
         cursor: not-allowed;
         color: $dropdown-item-disabled-color;
         background-color: #FFF;
     }
 
-    &[divided] {
+    &.divided {
         margin-top:5px;
         border-top:1px solid $dropdown-item-divided-border-color;
     }
