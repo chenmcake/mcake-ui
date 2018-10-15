@@ -14,9 +14,11 @@
                     :name="name"
                     :value="currentValue"
                     :placeholder="placeholder"
+                    :maxlength="maxlength"
                     :readonly="readonly"
                     :disabled="disabled"
                     :autofocus="autofocus"
+                    :autocomplete="autocomplete"
                     @input="handleInput"
                     @keyup.enter="handleEnter"
                     @keyup="handleKeyup"
@@ -37,9 +39,11 @@
                     :name="name"
                     :value="currentValue"
                     :placeholder="placeholder"
+                    :maxlength="maxlength"
                     :readonly="readonly"
                     :disabled="disabled"
                     :autofocus="autofocus"
+                    :autocomplete="autocomplete"
                     :rows="rows"
                     @input="handleInput"
                     @keyup.enter="handleEnter"
@@ -127,6 +131,8 @@ export default {
             type: String,
             default: ''
         },
+        // 最大输入长度
+        maxlength: Number,
         // name
         name: String,
         // 默认值
@@ -148,6 +154,13 @@ export default {
         autofocus: {
             type: Boolean,
             default: false
+        },
+        // 原生的自动完成功能
+        autocomplete: {
+            validator (value) {
+                return includes(['on', 'off'], value);
+            },
+            default: 'off'
         },
         // 多行文本框的行数
         rows: {
