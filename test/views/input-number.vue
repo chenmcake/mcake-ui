@@ -43,6 +43,17 @@
             </div>
         </div> <!-- demo-item 结束 -->
 
+        <div class="demo-item demo-diy-item">
+            <div class="demo-item-tit">
+                <h3>禁止状态</h3>
+            </div>
+            <div class="demo-item-cont">
+                <div class="demo-item-box">
+                    <m-input-number :value="1" disabled />
+                </div>
+            </div>
+        </div> <!-- demo-item 结束 -->
+
 
 
     </div> <!-- demo-wrap 结束 -->

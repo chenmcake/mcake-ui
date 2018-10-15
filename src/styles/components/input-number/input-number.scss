@@ -12,6 +12,7 @@ $ipt-number-prefix                   : #{$css-prefix}-ipt-number;
         width: 100%;
         color: $font-content-color;
         outline: 0;
+        text-align: center;
         border: 1px solid transparent;
         transition: border .2s ease-in-out, background .2s ease-in-out, box-shadow .2s ease-in-out;
 

@@ -38,7 +38,7 @@
 
     .#{$ipt-number-prefix}-reduce,
     .#{$ipt-number-prefix}-plus {
-        &:hover {
+        &:hover:not(.disabled) {
             & ~ .#{$ipt-number-prefix} {
                 border-color: $ipt-border-hover-color;
             }
