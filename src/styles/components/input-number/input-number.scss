@@ -7,9 +7,9 @@ $ipt-number-prefix                   : #{$css-prefix}-ipt-number;
     display: inline-block;
     width: $ipt-width-default;
 
+    // 输入框
     .#{$ipt-number-prefix} {
         width: 100%;
-        padding: 0 $ipt-padding-default;
         color: $font-content-color;
         outline: 0;
         border: 1px solid transparent;
@@ -28,20 +28,39 @@ $ipt-number-prefix                   : #{$css-prefix}-ipt-number;
         }
     }
 
-    // 输入框默认颜色风格
-    // @include ipt-color($border-color, $color-primary, $ipt-number-prefix);
-    // // 输入框的尺寸
-    // @include ipt-size($ipt-size-default, $ipt-font-size-default, $ipt-number-prefix);
+    //加减按钮
+    .#{$ipt-number-prefix}-reduce,
+    .#{$ipt-number-prefix}-plus {
+        position: absolute;
+        top: 1px;
+        z-index: 1;
+        display: block;
+        cursor: pointer;
+        color: $font-disabled-color;
+        transition: color .2s ease-in-out;
+
+        &:hover {
+            color: $color-primary;
+        }
+    }
+
+    .#{$ipt-number-prefix}-reduce {
+        left: 1px;
+        border-right: 1px solid $border-color;
+    }
+    .#{$ipt-number-prefix}-plus {
+        right: 1px;
+        border-left: 1px solid $border-color;
+    }
+
+    // 默认颜色风格
+    @include ipt-number-color($border-color, $color-primary);
+    // 默认尺寸
+    @include ipt-number-size($ipt-size-default, $ipt-font-size-default);
 }
 
 // 占整行
 .#{$ipt-number-prefix}-wrap-long {
     display: block;
     width: 100%;
-}
-
-.#{$ipt-number-prefix}-action {
-    position: absolute;
-    right: 0;
-    top: 0;
 }

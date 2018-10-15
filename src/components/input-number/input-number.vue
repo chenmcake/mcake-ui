@@ -1,56 +1,47 @@
 <template>
     <div :class="wrapClasses">
+        <!-- 减 -->
+        <span class="m-ipt-number-reduce"><i class="m-i-reduce"></i></span>
+        <!-- 加 -->
+        <span class="m-ipt-number-plus"><i class="m-i-plus"></i></span>
         <!-- 输入框 -->
-        <div class="m-ipt-number-content">
-            <input
-                class="m-ipt-number"
-                type="text"
-                :name="name"
-                :value="formatterValue"
-                :min="min"
-                :max="max"
-                :placeholder="placeholder"
-                autocomplete="off"
-                spellcheck="false">
-        </div> <!-- m-ipt-number-content 结束 -->
-        <!-- 操作 -->
-        <div class="m-ipt-number-action">
-            <span class="m-ipt-number-reduce"><i class="m-i-reduce"></i></span>
-            <span class="m-ipt-number-plus"><i class="m-i-plus"></i></span>
-        </div> <!-- m-ipt-number-action 结束 -->
+        <input class="m-ipt-number" type="text" :name="name" value="" :placeholder="placeholder">
     </div>
 </template>
 
 <script>
+// 引入输入框组件
+import MInput from '../input/input.vue';
 // 主容器 class
 const wrapClass = 'm-ipt-number-wrap';
 
 // 输出
 export default {
     name: 'MInputNumber',
+    components: { MInput },
     props: {
-        // 最大值
-        max: {
-            type: Number,
-            default: Infinity
-        },
-        // 最小值
-        min: {
-            type: Number,
-            default: -Infinity
-        },
-        // 间隔值
-        step: {
-            type: Number,
-            default: 1
-        },
         // 默认值
         value: {
             type: Number,
             default: 0
         },
+        // 最大值
+        // max: {
+        //     type: Number,
+        //     default: Infinity
+        // },
+        // 最小值
+        // min: {
+        //     type: Number,
+        //     default: -Infinity
+        // },
+        // 间隔值 每次递增或递减的数目
+        // step: {
+        //     type: Number,
+        //     default: 1
+        // },
         // 精度 用于控制小数位数
-        precision: Number,
+        // precision: Number,
         // name 用于表单提交
         name: String,
         // 提示信息
