@@ -81,15 +81,6 @@ export function isBoolean(obj) {
     return type(obj) === "boolean";
 };
 
-
-/**
- * 是否为NaN
- * @param  {[type]}  obj [检测内容]
- * @return {Boolean}     [返回true/false]
- */
-export function isNaN(obj) {
-    return isNumber(obj) && isNaN(obj);
-};
 /**
  * 是否为空 null undefined 空字符串
  * @param  {[type]}  obj [检测内容]
