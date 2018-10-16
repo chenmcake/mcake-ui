@@ -37,10 +37,15 @@ $ipt-number-prefix                   : #{$css-prefix}-ipt-number;
         z-index: 1;
         display: block;
         cursor: pointer;
-        color: $font-disabled-color;
+        color: $font-content-color;
         transition: color .2s ease-in-out;
 
-        &:hover {
+        &.disabled {
+            color: $font-disabled-color;
+            cursor: not-allowed;
+        }
+
+        &:not(.disabled):hover {
             color: $color-primary;
         }
     }
