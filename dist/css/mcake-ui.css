@@ -4119,13 +4119,15 @@ a[disabled] {
   position: relative;
   display: inline-block;
   width: 250px;
+  vertical-align: middle;
+  font-size: 14px;
 }
 
 .m-ipt-number-wrap .m-ipt-number {
   width: 100%;
-  padding: 0 10px;
   color: #333333;
   outline: 0;
+  text-align: center;
   border: 1px solid transparent;
   -webkit-transition: border .2s ease-in-out, background .2s ease-in-out, -webkit-box-shadow .2s ease-in-out;
   transition: border .2s ease-in-out, background .2s ease-in-out, -webkit-box-shadow .2s ease-in-out;
@@ -4140,15 +4142,232 @@ a[disabled] {
   background-color: #e6e6e6;
 }
 
+.m-ipt-number-wrap .m-ipt-number-reduce,
+.m-ipt-number-wrap .m-ipt-number-plus {
+  position: absolute;
+  z-index: 1;
+  display: block;
+  cursor: pointer;
+  color: #333333;
+  -webkit-transition: color .2s ease-in-out;
+  transition: color .2s ease-in-out;
+}
+
+.m-ipt-number-wrap .m-ipt-number-reduce.disabled,
+.m-ipt-number-wrap .m-ipt-number-plus.disabled {
+  color: #999999;
+  cursor: not-allowed;
+}
+
+.m-ipt-number-wrap .m-ipt-number-reduce:not(.disabled):hover,
+.m-ipt-number-wrap .m-ipt-number-plus:not(.disabled):hover {
+  color: #006AFF;
+}
+
+.m-ipt-number-wrap:not(.controls-right) .m-ipt-number-reduce,
+.m-ipt-number-wrap:not(.controls-right) .m-ipt-number-plus {
+  top: 1px;
+}
+
+.m-ipt-number-wrap:not(.controls-right) .m-ipt-number-reduce {
+  left: 1px;
+  border-right: 1px solid #CCCCCC;
+}
+
+.m-ipt-number-wrap:not(.controls-right) .m-ipt-number-plus {
+  right: 1px;
+  border-left: 1px solid #CCCCCC;
+}
+
+.m-ipt-number-wrap.controls-right .m-ipt-number-reduce,
+.m-ipt-number-wrap.controls-right .m-ipt-number-plus {
+  right: 1px;
+  border-left: 1px solid #CCCCCC;
+}
+
+.m-ipt-number-wrap.controls-right .m-ipt-number-plus {
+  top: 1px;
+}
+
+.m-ipt-number-wrap.controls-right .m-ipt-number-reduce {
+  bottom: 1px;
+  border-top: 1px solid #CCCCCC;
+}
+
+.m-ipt-number-wrap.controls-right .m-ipt-number {
+  text-align: left;
+}
+
+.m-ipt-number-wrap .m-ipt-number {
+  border-color: #CCCCCC;
+}
+
+.m-ipt-number-wrap .m-ipt-number.hover, .m-ipt-number-wrap .m-ipt-number:hover {
+  border-color: #006AFF;
+}
+
+.m-ipt-number-wrap .m-ipt-number.focus, .m-ipt-number-wrap .m-ipt-number:focus {
+  border-color: #247fff;
+  -webkit-box-shadow: 0 0 5px #247fff;
+          box-shadow: 0 0 5px #247fff;
+}
+
+.m-ipt-number-wrap .m-ipt-number-reduce:hover:not(.disabled) ~ .m-ipt-number,
+.m-ipt-number-wrap .m-ipt-number-plus:hover:not(.disabled) ~ .m-ipt-number {
+  border-color: #006AFF;
+}
+
+.m-ipt-number-wrap .m-ipt-number-reduce,
+.m-ipt-number-wrap .m-ipt-number-plus {
+  width: 32px;
+  text-align: center;
+}
+
+.m-ipt-number-wrap .m-ipt-number {
+  height: 32px;
+}
+
+.m-ipt-number-wrap:not(.controls-right) .m-ipt-number-reduce,
+.m-ipt-number-wrap:not(.controls-right) .m-ipt-number-plus {
+  height: 30px;
+  line-height: 30px;
+}
+
+.m-ipt-number-wrap:not(.controls-right) .m-ipt-number {
+  padding: 0 42px;
+}
+
+.m-ipt-number-wrap.controls-right .m-ipt-number-reduce,
+.m-ipt-number-wrap.controls-right .m-ipt-number-plus {
+  height: 15px;
+  line-height: 15px;
+}
+
+.m-ipt-number-wrap.controls-right .m-ipt-number {
+  padding: 0 42px 0 10px;
+}
+
+.m-ipt-number-wrap.m-ipt-number-wrap-fillet .m-ipt-number {
+  border-radius: 4px;
+}
+
+.m-ipt-number-wrap-mini {
+  font-size: 12px;
+}
+
+.m-ipt-number-wrap-mini .m-ipt-number-reduce,
+.m-ipt-number-wrap-mini .m-ipt-number-plus {
+  width: 24px;
+  text-align: center;
+}
+
+.m-ipt-number-wrap-mini .m-ipt-number {
+  height: 24px;
+}
+
+.m-ipt-number-wrap-mini:not(.controls-right) .m-ipt-number-reduce,
+.m-ipt-number-wrap-mini:not(.controls-right) .m-ipt-number-plus {
+  height: 22px;
+  line-height: 22px;
+}
+
+.m-ipt-number-wrap-mini:not(.controls-right) .m-ipt-number {
+  padding: 0 34px;
+}
+
+.m-ipt-number-wrap-mini.controls-right .m-ipt-number-reduce,
+.m-ipt-number-wrap-mini.controls-right .m-ipt-number-plus {
+  height: 11px;
+  line-height: 11px;
+}
+
+.m-ipt-number-wrap-mini.controls-right .m-ipt-number {
+  padding: 0 34px 0 10px;
+}
+
+.m-ipt-number-wrap-mini.m-ipt-number-wrap-fillet .m-ipt-number {
+  border-radius: 3px;
+}
+
+.m-ipt-number-wrap-small {
+  font-size: 14px;
+}
+
+.m-ipt-number-wrap-small .m-ipt-number-reduce,
+.m-ipt-number-wrap-small .m-ipt-number-plus {
+  width: 28px;
+  text-align: center;
+}
+
+.m-ipt-number-wrap-small .m-ipt-number {
+  height: 28px;
+}
+
+.m-ipt-number-wrap-small:not(.controls-right) .m-ipt-number-reduce,
+.m-ipt-number-wrap-small:not(.controls-right) .m-ipt-number-plus {
+  height: 26px;
+  line-height: 26px;
+}
+
+.m-ipt-number-wrap-small:not(.controls-right) .m-ipt-number {
+  padding: 0 38px;
+}
+
+.m-ipt-number-wrap-small.controls-right .m-ipt-number-reduce,
+.m-ipt-number-wrap-small.controls-right .m-ipt-number-plus {
+  height: 13px;
+  line-height: 13px;
+}
+
+.m-ipt-number-wrap-small.controls-right .m-ipt-number {
+  padding: 0 38px 0 10px;
+}
+
+.m-ipt-number-wrap-small.m-ipt-number-wrap-fillet .m-ipt-number {
+  border-radius: 4px;
+}
+
+.m-ipt-number-wrap-large {
+  font-size: 16px;
+}
+
+.m-ipt-number-wrap-large .m-ipt-number-reduce,
+.m-ipt-number-wrap-large .m-ipt-number-plus {
+  width: 40px;
+  text-align: center;
+}
+
+.m-ipt-number-wrap-large .m-ipt-number {
+  height: 40px;
+}
+
+.m-ipt-number-wrap-large:not(.controls-right) .m-ipt-number-reduce,
+.m-ipt-number-wrap-large:not(.controls-right) .m-ipt-number-plus {
+  height: 38px;
+  line-height: 38px;
+}
+
+.m-ipt-number-wrap-large:not(.controls-right) .m-ipt-number {
+  padding: 0 50px;
+}
+
+.m-ipt-number-wrap-large.controls-right .m-ipt-number-reduce,
+.m-ipt-number-wrap-large.controls-right .m-ipt-number-plus {
+  height: 19px;
+  line-height: 19px;
+}
+
+.m-ipt-number-wrap-large.controls-right .m-ipt-number {
+  padding: 0 50px 0 10px;
+}
+
+.m-ipt-number-wrap-large.m-ipt-number-wrap-fillet .m-ipt-number {
+  border-radius: 6px;
+}
+
 .m-ipt-number-wrap-long {
   display: block;
   width: 100%;
-}
-
-.m-ipt-number-action {
-  position: absolute;
-  right: 0;
-  top: 0;
 }
 
 /* 单选框 */
