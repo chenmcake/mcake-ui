@@ -6,6 +6,7 @@ $ipt-number-prefix                   : #{$css-prefix}-ipt-number;
     position: relative;
     display: inline-block;
     width: $ipt-width-default;
+    vertical-align: middle;
 
     // 输入框
     .#{$ipt-number-prefix} {
@@ -33,7 +34,6 @@ $ipt-number-prefix                   : #{$css-prefix}-ipt-number;
     .#{$ipt-number-prefix}-reduce,
     .#{$ipt-number-prefix}-plus {
         position: absolute;
-        top: 1px;
         z-index: 1;
         display: block;
         cursor: pointer;
@@ -50,19 +50,55 @@ $ipt-number-prefix                   : #{$css-prefix}-ipt-number;
         }
     }
 
-    .#{$ipt-number-prefix}-reduce {
-        left: 1px;
-        border-right: 1px solid $border-color;
+    &:not(.controls-right) {
+        .#{$ipt-number-prefix}-reduce,
+        .#{$ipt-number-prefix}-plus {
+            top: 1px;
+        }
+        .#{$ipt-number-prefix}-reduce {
+            left: 1px;
+            border-right: 1px solid $border-color;
+        }
+        .#{$ipt-number-prefix}-plus {
+            right: 1px;
+            border-left: 1px solid $border-color;
+        }
     }
-    .#{$ipt-number-prefix}-plus {
-        right: 1px;
-        border-left: 1px solid $border-color;
+
+    &.controls-right {
+        .#{$ipt-number-prefix}-reduce,
+        .#{$ipt-number-prefix}-plus {
+            right: 1px;
+            border-left: 1px solid $border-color;
+        }
+        .#{$ipt-number-prefix}-plus {
+            top: 1px;
+        }
+        .#{$ipt-number-prefix}-reduce {
+            bottom: 1px;
+            border-top: 1px solid $border-color;
+        }
+
+        .#{$ipt-number-prefix} {
+            text-align: left;
+        }
     }
 
     // 默认颜色风格
     @include ipt-number-color($border-color, $color-primary);
     // 默认尺寸
     @include ipt-number-size($ipt-size-default, $ipt-font-size-default);
+}
+
+// 数字输入框尺寸
+.#{$ipt-number-prefix}-wrap-mini {
+    @include ipt-number-size($ipt-size-mini, $ipt-font-size-mini);
+}
+.#{$ipt-number-prefix}-wrap-small {
+    @include ipt-number-size($ipt-size-small, $ipt-font-size-small);
+}
+.#{$ipt-number-prefix}-wrap-large {
+    @include ipt-number-size($ipt-size-large, $ipt-font-size-large);
 }
 
 // 占整行

@@ -5,14 +5,41 @@
     .#{$ipt-number-prefix}-reduce,
     .#{$ipt-number-prefix}-plus {
         width: $height;
-        height: $height - 2px;
-        line-height: $height - 2px;
         text-align: center;
     }
-
     .#{$ipt-number-prefix} {
         height: $height;
-        padding: 0 ($ipt-padding-default + $height);
+    }
+
+    // 按钮默认位置
+    &:not(.controls-right) {
+        .#{$ipt-number-prefix}-reduce,
+        .#{$ipt-number-prefix}-plus {
+            height: $height - 2px;
+            line-height: $height - 2px;
+        }
+
+        .#{$ipt-number-prefix} {
+            padding: 0 ($ipt-padding-default + $height);
+        }
+    }
+    // 按钮居右边
+    &.controls-right {
+        .#{$ipt-number-prefix}-reduce,
+        .#{$ipt-number-prefix}-plus {
+            height: ($height - 2px) / 2;
+            line-height: ($height - 2px) / 2;
+        }
+        .#{$ipt-number-prefix} {
+            padding: 0 ($ipt-padding-default + $height) 0 $ipt-padding-default;
+        }
+    }
+
+    // 带圆角的
+    &.#{$ipt-number-prefix}-wrap-fillet{
+        .#{$ipt-number-prefix} {
+            border-radius: round($height * $border-radius-ratio);
+        }
     }
 }
 
