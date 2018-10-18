@@ -22,7 +22,7 @@
     "component"
   ],
   "author": "淡淡的月饼",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "popper.js": "^1.14.4",
     "v-click-outside-x": "^3.4.0"
