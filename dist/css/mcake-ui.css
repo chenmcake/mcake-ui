@@ -3793,10 +3793,10 @@ a[disabled] {
   color: #333333;
   outline: 0;
   border: 1px solid transparent;
-  -webkit-transition: border .2s ease-in-out, background .2s ease-in-out, -webkit-box-shadow .2s ease-in-out;
-  transition: border .2s ease-in-out, background .2s ease-in-out, -webkit-box-shadow .2s ease-in-out;
-  transition: border .2s ease-in-out, background .2s ease-in-out, box-shadow .2s ease-in-out;
-  transition: border .2s ease-in-out, background .2s ease-in-out, box-shadow .2s ease-in-out, -webkit-box-shadow .2s ease-in-out;
+  -webkit-transition: border 0.2s ease-in-out, background 0.2s ease-in-out, -webkit-box-shadow 0.2s ease-in-out;
+  transition: border 0.2s ease-in-out, background 0.2s ease-in-out, -webkit-box-shadow 0.2s ease-in-out;
+  transition: border 0.2s ease-in-out, background 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  transition: border 0.2s ease-in-out, background 0.2s ease-in-out, box-shadow 0.2s ease-in-out, -webkit-box-shadow 0.2s ease-in-out;
 }
 
 .m-ipt-wrap .m-ipt[disabled], .m-ipt-wrap .m-ipt[disabled].hover, .m-ipt-wrap .m-ipt[disabled]:hover {
@@ -4108,6 +4108,23 @@ a[disabled] {
   width: 40px;
   height: 40px;
   line-height: 40px;
+}
+
+.m-ipt-wrap .m-ipt-clear {
+  display: none;
+  cursor: pointer;
+  color: #333333;
+  opacity: .6;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.m-ipt-wrap .m-ipt-clear:hover {
+  opacity: 1;
+}
+
+.m-ipt-wrap:hover .m-ipt-clear {
+  display: block;
 }
 
 .m-ipt-wrap textarea.m-ipt {

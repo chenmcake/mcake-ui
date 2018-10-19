@@ -1539,7 +1539,7 @@ var prefixClass = 'm-col';
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_13_7_3_vue_loader_lib_selector_type_script_index_0_input_vue__ = __webpack_require__(52);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__babel_loader_node_modules_vue_loader_13_7_3_vue_loader_lib_template_compiler_index_id_data_v_3fb47c46_hasScoped_false_buble_transforms_node_modules_vue_loader_13_7_3_vue_loader_lib_selector_type_template_index_0_input_vue__ = __webpack_require__(139);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__babel_loader_node_modules_vue_loader_13_7_3_vue_loader_lib_template_compiler_index_id_data_v_514118fb_hasScoped_false_buble_transforms_node_modules_vue_loader_13_7_3_vue_loader_lib_selector_type_template_index_0_input_vue__ = __webpack_require__(139);
 var normalizeComponent = __webpack_require__(0)
 /* script */
 
@@ -1556,7 +1556,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_13_7_3_vue_loader_lib_selector_type_script_index_0_input_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__babel_loader_node_modules_vue_loader_13_7_3_vue_loader_lib_template_compiler_index_id_data_v_3fb47c46_hasScoped_false_buble_transforms_node_modules_vue_loader_13_7_3_vue_loader_lib_selector_type_template_index_0_input_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__babel_loader_node_modules_vue_loader_13_7_3_vue_loader_lib_template_compiler_index_id_data_v_514118fb_hasScoped_false_buble_transforms_node_modules_vue_loader_13_7_3_vue_loader_lib_selector_type_template_index_0_input_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -1575,6 +1575,13 @@ var Component = normalizeComponent(
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_base__ = __webpack_require__(1);
 
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1751,6 +1758,11 @@ iptClassIconLeft = 'm-ipt-icon-left',
         rows: {
             type: Number,
             default: 4
+        },
+        // 是否可清空
+        clearable: {
+            type: Boolean,
+            default: false
         }
     },
     // 数据
@@ -1764,9 +1776,7 @@ iptClassIconLeft = 'm-ipt-icon-left',
             // 是否向后插入内容
             after: true,
             // 是否显示插入内容
-            slotReady: false,
-            // 输入框存在图标时 输入框样式
-            iconInputClass: this.icon ? this.iconBefore ? iptClassIconLeft : iptClassIconRight : null
+            slotReady: false
         };
     },
 
@@ -1793,6 +1803,22 @@ iptClassIconLeft = 'm-ipt-icon-left',
             return [
             // 默认class
             '' + iptClass, __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()({}, '' + this.iconInputClass, !!this.iconInputClass)];
+        },
+
+        // 输入框存在图标时 输入框样式
+        iconInputClass: function iconInputClass() {
+            // 如果清空图标存在
+            if (this.showClear) return iptClassIconRight;
+            // 如果为普通图标
+            if (this.icon) {
+                return this.iconBefore ? iptClassIconLeft : iptClassIconRight;
+            }
+            return null;
+        },
+
+        // 是否显示清空按钮
+        showClear: function showClear() {
+            return this.clearable && !this.readonly && !this.disabled && this.currentValue !== '';
         }
     },
     // 实例初始化完成
@@ -1827,12 +1853,14 @@ iptClassIconLeft = 'm-ipt-icon-left',
             // 提交相关事件
             this.$emit('input', value, e);
             this.setCurrentValue(value);
-            this.$emit('on-change', value, e);
+            this.$emit('on-input', value, e);
             // console.log(e)
         },
 
         // 值改变事件
-        handleChange: function handleChange(e) {},
+        handleChange: function handleChange(e) {
+            this.$emit('on-change', e.target.value, e);
+        },
 
         // 处理回车事件
         handleEnter: function handleEnter(e) {
@@ -1867,6 +1895,19 @@ iptClassIconLeft = 'm-ipt-icon-left',
         // 图标点击事件
         handleIconClick: function handleIconClick(e) {
             this.$emit('on-click', this.currentValue, e);
+        },
+
+        // 清空事件
+        handleClear: function handleClear() {
+            // 生成一个e对象 防止出错
+            var e = { target: { value: '' } };
+            //console.log(value)
+            // 提交相关事件
+            this.$emit('input', '');
+            this.setCurrentValue('');
+            this.$emit('on-input', '', e);
+            this.$emit('on-change', '', e);
+            this.$emit('on-clear', '');
         }
     }
 });
@@ -8396,7 +8437,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 // McakeUI组件集
-var McakeUI = {
+var Components = {
     Icon: __WEBPACK_IMPORTED_MODULE_2__components_icon__["a" /* default */],
     Button: __WEBPACK_IMPORTED_MODULE_3__components_button__["a" /* default */],
     ButtonGroup: __WEBPACK_IMPORTED_MODULE_3__components_button__["a" /* default */].Group,
@@ -8435,8 +8476,8 @@ var install = function install(Vue) {
     var opts = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
     // 遍历所有组件
-    __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_keys___default()(McakeUI).forEach(function (key) {
-        var item = McakeUI[key];
+    __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_keys___default()(Components).forEach(function (key) {
+        var item = Components[key];
         // 注册当前组件
         Vue.component(item.name, item);
     });
@@ -8447,14 +8488,16 @@ if (typeof window !== 'undefined' && window.Vue) {
     install(window.Vue);
 }
 
-var obj = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign___default()(McakeUI, { install: install });
+var McakeUI = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign___default()(Components, {
+    // Version: '2.4.8',
+    install: install
+});
 // 所有组件
-console.log(obj);
-// console.log(M)
-// 输出
-// module.exports = obj;
+console.log(McakeUI);
+console.log('目前一共：' + (__WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_keys___default()(McakeUI).length - 1) + '个组件');
 
-/* harmony default export */ __webpack_exports__["default"] = (obj);
+// 输出
+/* harmony default export */ __webpack_exports__["default"] = (McakeUI);
 
 /***/ }),
 /* 87 */
@@ -9576,11 +9619,11 @@ var esExports = { render: render, staticRenderFns: staticRenderFns };
 
 "use strict";
 var render = function render() {
-  var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', { class: _vm.wrapClasses }, [_vm.before ? _c('div', { directives: [{ name: "show", rawName: "v-show", value: _vm.slotReady, expression: "slotReady" }], staticClass: "m-ipt-before" }, [_vm._t("before")], 2) : _vm._e(), _vm._v(" "), _c('div', { staticClass: "m-ipt-content" }, [_vm.type !== 'textarea' ? [_c('input', { ref: "input", class: _vm.iptClasses, attrs: { "type": _vm.type, "name": _vm.name, "placeholder": _vm.placeholder, "maxlength": _vm.maxlength, "readonly": _vm.readonly, "disabled": _vm.disabled, "autofocus": _vm.autofocus, "autocomplete": _vm.autocomplete }, domProps: { "value": _vm.currentValue }, on: { "input": _vm.handleInput, "keyup": [function ($event) {
+  var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', { class: _vm.wrapClasses }, [_vm.before ? _c('div', { directives: [{ name: "show", rawName: "v-show", value: _vm.slotReady, expression: "slotReady" }], staticClass: "m-ipt-before" }, [_vm._t("before")], 2) : _vm._e(), _vm._v(" "), _c('div', { staticClass: "m-ipt-content" }, [_vm.type !== 'textarea' ? [_c('input', { ref: "input", class: _vm.iptClasses, attrs: { "type": _vm.type, "name": _vm.name, "placeholder": _vm.placeholder, "maxlength": _vm.maxlength, "readonly": _vm.readonly, "disabled": _vm.disabled, "autofocus": _vm.autofocus, "autocomplete": _vm.autocomplete }, domProps: { "value": _vm.currentValue }, on: { "input": _vm.handleInput, "change": _vm.handleChange, "keyup": [function ($event) {
         if (!('button' in $event) && _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")) {
           return null;
         }return _vm.handleEnter($event);
-      }, _vm.handleKeyup], "keypress": _vm.handleKeypress, "keydown": _vm.handleKeydown, "focus": _vm.handleFocus, "blur": _vm.handleBlur } }), _vm._v(" "), _vm.icon ? _c('i', { class: ['m-ipt-icon', "m-i-" + _vm.icon], on: { "click": _vm.handleIconClick } }) : _vm._e()] : [_c('textarea', { ref: "input", class: _vm.iptClasses, attrs: { "type": _vm.type, "name": _vm.name, "placeholder": _vm.placeholder, "maxlength": _vm.maxlength, "readonly": _vm.readonly, "disabled": _vm.disabled, "autofocus": _vm.autofocus, "autocomplete": _vm.autocomplete, "rows": _vm.rows }, domProps: { "value": _vm.currentValue }, on: { "input": _vm.handleInput, "change": _vm.handleChange, "keyup": [function ($event) {
+      }, _vm.handleKeyup], "keypress": _vm.handleKeypress, "keydown": _vm.handleKeydown, "focus": _vm.handleFocus, "blur": _vm.handleBlur } }), _vm._v(" "), _vm.showClear ? _c('i', { class: ['m-ipt-clear', 'm-ipt-icon', 'm-i-error-o-b'], on: { "click": _vm.handleClear } }) : _vm.icon ? _c('i', { class: ['m-ipt-icon', "m-i-" + _vm.icon], on: { "click": _vm.handleIconClick } }) : _vm._e()] : [_c('textarea', { ref: "input", class: _vm.iptClasses, attrs: { "type": _vm.type, "name": _vm.name, "placeholder": _vm.placeholder, "maxlength": _vm.maxlength, "readonly": _vm.readonly, "disabled": _vm.disabled, "autofocus": _vm.autofocus, "autocomplete": _vm.autocomplete, "rows": _vm.rows }, domProps: { "value": _vm.currentValue }, on: { "input": _vm.handleInput, "change": _vm.handleChange, "keyup": [function ($event) {
         if (!('button' in $event) && _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")) {
           return null;
         }return _vm.handleEnter($event);
