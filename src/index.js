@@ -49,7 +49,7 @@ import Crumb from './components/crumb';
 import Ellipsis from './components/ellipsis';
 
 // McakeUI组件集
-const McakeUI = {
+const Components = {
     Icon,
     Button,
     ButtonGroup: Button.Group,
@@ -86,8 +86,8 @@ const McakeUI = {
 // 组件安装程序
 const install = function (Vue, opts = {}) {
     // 遍历所有组件
-    Object.keys(McakeUI).forEach(key => {
-        let item = McakeUI[key];
+    Object.keys(Components).forEach(key => {
+        let item = Components[key];
         // 注册当前组件
         Vue.component(item.name, item);
     });
@@ -98,11 +98,13 @@ if (typeof window !== 'undefined' && window.Vue) {
     install(window.Vue);
 }
 
-const obj = Object.assign(McakeUI, { install });
+const McakeUI = Object.assign(Components, {
+    // Version: '2.4.8',
+    install
+});
 // 所有组件
-console.log(obj);
-// console.log(M)
-// 输出
-// module.exports = obj;
+console.log(McakeUI);
+console.log('目前一共：' + (Object.keys(McakeUI).length - 1) + '个组件');
 
-export default obj;
+// 输出
+export default McakeUI;

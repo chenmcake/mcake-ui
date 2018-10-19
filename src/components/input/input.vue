@@ -20,6 +20,7 @@
                     :autofocus="autofocus"
                     :autocomplete="autocomplete"
                     @input="handleInput"
+                    @change="handleChange"
                     @keyup.enter="handleEnter"
                     @keyup="handleKeyup"
                     @keypress="handleKeypress"
@@ -27,7 +28,13 @@
                     @focus="handleFocus"
                     @blur="handleBlur"
                      >
-                <i v-if="icon"
+
+                <!-- 清除图标 -->
+                <i v-if="showClear"
+                   :class="['m-ipt-clear', 'm-ipt-icon', 'm-i-error-o-b']"
+                   @click="handleClear" ></i>
+                <!-- 普通图标 -->
+                <i v-else-if="icon"
                    :class="['m-ipt-icon', `m-i-${icon}`]"
                    @click="handleIconClick" ></i>
             </template>
@@ -46,6 +53,7 @@
                     :autocomplete="autocomplete"
                     :rows="rows"
                     @input="handleInput"
+                    @change="handleChange"
                     @keyup.enter="handleEnter"
                     @keyup="handleKeyup"
                     @keypress="handleKeypress"
@@ -167,6 +175,11 @@ export default {
             type: Number,
             default: 4
         },
+        // 是否可清空
+        clearable: {
+            type: Boolean,
+            default: false
+        }
     },
     // 数据
     data() {
@@ -179,9 +192,7 @@ export default {
             // 是否向后插入内容
             after: true,
             // 是否显示插入内容
-            slotReady: false,
-            // 输入框存在图标时 输入框样式
-            iconInputClass: this.icon ? this.iconBefore ? iptClassIconLeft : iptClassIconRight : null,
+            slotReady: false
         }
     },
     // 观察者
@@ -220,6 +231,20 @@ export default {
                     [`${this.iconInputClass}`]: !!this.iconInputClass,
                 }
             ];
+        },
+        // 输入框存在图标时 输入框样式
+        iconInputClass() {
+            // 如果清空图标存在
+            if(this.showClear) return iptClassIconRight;
+            // 如果为普通图标
+            if(this.icon) {
+                return this.iconBefore ? iptClassIconLeft : iptClassIconRight;
+            }
+            return null;
+        },
+        // 是否显示清空按钮
+        showClear() {
+            return this.clearable && !this.readonly && !this.disabled && this.currentValue !== '';
         }
     },
     // 实例初始化完成
@@ -252,8 +277,12 @@ export default {
             // 提交相关事件
             this.$emit('input', value, e);
             this.setCurrentValue(value);
-            this.$emit('on-change',value, e);
+            this.$emit('on-input', value, e);
             // console.log(e)
+        },
+        // 值改变事件
+        handleChange(e) {
+            this.$emit('on-change', e.target.value, e);
         },
         // 处理回车事件
         handleEnter (e) {
@@ -283,6 +312,17 @@ export default {
         handleIconClick (e) {
             this.$emit('on-click', this.currentValue, e);
         },
+        handleClear() {
+            // 生成一个e对象 防止出错
+            let e = { target: { value: '' } };
+            //console.log(value)
+            // 提交相关事件
+            this.$emit('input', '');
+            this.setCurrentValue('');
+            this.$emit('on-input', '', e);
+            this.$emit('on-change', '', e);
+            this.$emit('on-clear', '');
+        }
     }
 };
 </script>

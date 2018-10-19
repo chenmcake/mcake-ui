@@ -133,16 +133,18 @@ $ipt-width-default                       : 250px;
 $ipt-box-shadow                          : 0 0 5px;
 $ipt-disabled-bg                         : #e6e6e6;
 $ipt-before-after-border                 : $border-color;
-// 按钮尺寸 由小到大
+// 输入框尺寸 由小到大
 $ipt-size-mini                           : $btn-size-mini;
 $ipt-size-small                          : $btn-size-small;
 $ipt-size-default                        : $btn-size-default;
 $ipt-size-large                          : $btn-size-large;
-// 按钮字体大小
+// 输入框字体大小
 $ipt-font-size-mini                      : $font-size-small;
 $ipt-font-size-small                     : $font-size-default;
 $ipt-font-size-default                   : $font-size-default;
 $ipt-font-size-large                     : $font-size-large;
+// 输入框清空图标
+$ipt-clear-color                         : $font-content-color;
 
 
 // 单选框以及多选框

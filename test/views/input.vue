@@ -199,6 +199,17 @@
 
         <div class="demo-item demo-diy-item">
             <div class="demo-item-tit">
+                <h3>可清空的</h3>
+            </div>
+            <div class="demo-item-cont">
+                <div class="demo-item-box">
+                    <m-input v-model="value0" :clearable="true" />
+                </div>
+            </div>
+        </div> <!-- demo-item 结束 -->
+
+        <div class="demo-item demo-diy-item">
+            <div class="demo-item-tit">
                 <h3>自动获取焦点</h3>
             </div>
             <div class="demo-item-cont">
@@ -215,8 +226,11 @@
             <div class="demo-item-cont">
                 <div class="demo-item-box">
                     <m-input
+                        v-model="value1"
                         icon="search"
+                        placeholder="请输入关键词"
                         @input="inputEvent"
+                        @on-input="inputInput"
                         @on-change="inputChange"
                         @on-enter="inputEnter"
                         @on-keyup="inputKeyup"
@@ -225,7 +239,8 @@
                         @on-focus="inputFocus"
                         @on-blur="inputBlur"
                         @on-click="inputClick"
-                         />
+                        @on-clear="inputClear"
+                        clearable />
                 </div>
             </div>
         </div> <!-- demo-item 结束 -->
@@ -237,7 +252,10 @@
 <script>
 export default {
     data() {
-        return {}
+        return {
+            value0: "Hello world",
+            value1: "美女"
+        }
     },
     methods: {
         // 输入事件
@@ -245,10 +263,15 @@ export default {
             // console.log(value);
             // console.log(e)
         },
+        // 输入事件
+        inputInput(value, e) {
+            console.log('事件类型input的值为：' + value);
+            console.log(e)
+        },
         // 改变事件
         inputChange(value, e) {
-            // console.log(value);
-            // console.log(e)
+            console.log('事件类型change的值为：' + value);
+            console.log(e)
         },
         // 回车事件
         inputEnter(value, e) {
@@ -285,6 +308,9 @@ export default {
             // console.log(value);
             // console.log(e)
         },
+        inputClear(value) {
+            console.log('事件类型clear的值为：' + value)
+        }
     }
 }
 </script>

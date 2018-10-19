@@ -41,7 +41,7 @@ $ipt-prefix                   : #{$css-prefix}-ipt;
         color: $font-content-color;
         outline: 0;
         border: 1px solid transparent;
-        transition: border .2s ease-in-out, background .2s ease-in-out, box-shadow .2s ease-in-out;
+        transition: border .2s $transition-function, background .2s $transition-function, box-shadow .2s $transition-function;
         // 禁止输入
         &[disabled] {
             &,
@@ -131,6 +131,27 @@ $ipt-prefix                   : #{$css-prefix}-ipt;
 }
 .#{$ipt-prefix}-wrap-large {
     @include ipt-icon($ipt-size-large);
+}
+
+// 可清空
+.#{$ipt-prefix}-wrap {
+    .#{$ipt-prefix}-clear {
+        display: none;
+        cursor: pointer;
+        color: $ipt-clear-color;
+        opacity: .6;
+        transition: all .3s $transition-function;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    &:hover {
+        .#{$ipt-prefix}-clear{
+            display: block;
+        }
+    }
 }
 
 // 多行文本框
