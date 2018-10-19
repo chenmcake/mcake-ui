@@ -312,6 +312,7 @@ export default {
         handleIconClick (e) {
             this.$emit('on-click', this.currentValue, e);
         },
+        // 清空事件
         handleClear() {
             // 生成一个e对象 防止出错
             let e = { target: { value: '' } };
