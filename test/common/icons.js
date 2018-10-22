@@ -341,5 +341,29 @@ export default [
       },
     ]
   },
-
+  {
+    "name": "加载图标",
+    "data": [
+      {
+        "name": "加载中",
+        "value": "loading",
+        "spin": true
+      },
+      {
+        "name": "加载中-2",
+        "value": "loading-2",
+        "spin": true
+      },
+      {
+        "name": "加载中-3",
+        "value": "loading-3",
+        "spin": true
+      },
+      {
+        "name": "加载中-风车",
+        "value": "loading-windmill",
+        "spin": true
+      },
+    ]
+  },
 ]

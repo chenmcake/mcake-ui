@@ -2,6 +2,7 @@
 // - base              公共基础
 // - zindex            层级
 // - colors            颜色主题
+// - icon              图标
 // - animation         动画
 // - button            按钮
 // - input             输入框
@@ -80,6 +81,9 @@ $theme-colors: (
 );
 // 改变颜色深度 常用于按钮 输入框 hover active等事件
 $color-gradient                          : 7%;
+
+// icon 图标
+$icon-loading-animation-duration         : 1.6s;
 
 // animation 动画
 $transition-time                         : .2s;

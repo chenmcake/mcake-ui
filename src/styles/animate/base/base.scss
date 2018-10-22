@@ -1,5 +1,6 @@
 // Mcake 公共动画库
 // - loading          加载中
+// - spin-loading     旋转加载中动画
 
 // loading 加载中-透明度
 @keyframes loading-opacity {
@@ -9,5 +10,13 @@
 
     50% {
         opacity: 1;
+    }
+}
+
+// spin-loading 图标旋转加载中动画
+
+@keyframes spin-loading {
+    100% {
+        transform: rotate(360deg);
     }
 }

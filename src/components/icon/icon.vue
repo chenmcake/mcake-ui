@@ -23,6 +23,11 @@ export default {
                 return includes(['primary', 'success', 'info', 'warning', 'error', 'noble'], value);
             }
         },
+        // 旋转动画
+        spin: {
+            type: Boolean,
+            default: false
+        },
         // 颜色
         color: String,
         // 行高
@@ -38,6 +43,8 @@ export default {
                     [`${prefixClass}-${this.type}`]: !!this.type,
                     // 图标颜色主题
                     [`m-text-${this.theme}`]: !!this.theme,
+                    // 旋转加载中动画
+                    [`${prefixClass}-spin-loading`]: this.spin,
                 }
             ]
         },
@@ -58,6 +65,9 @@ export default {
             }
             return style;
         }
+    },
+    mounted() {
+        console.log(this.spin)
     }
 };
 </script>

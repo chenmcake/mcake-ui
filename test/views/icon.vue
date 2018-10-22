@@ -106,8 +106,8 @@
                         v-for="(icon, j) in item.data"
                         class="icon-box">
                         <p>
-                            <m-icon v-if="nowColor !== 'default'" :type="icon.value" :theme="nowColor"></m-icon>
-                            <m-icon v-else :type="icon.value"></m-icon>
+                            <m-icon v-if="nowColor !== 'default'" :type="icon.value" :spin="icon.spin" :theme="nowColor"></m-icon>
+                            <m-icon v-else :type="icon.value" :spin="icon.spin"></m-icon>
                         </p>
                         <h4 class="omiss">{{icon.value}}</h4>
                     </div> <!-- icon-box 结束 -->
