@@ -5,6 +5,14 @@
 </p>
 
 # Mcake UI
+<p>
+    <a href="https://www.npmjs.org/package/mcake-ui">
+      <img src="https://img.shields.io/npm/v/mcake-ui.svg">
+    </a>
+    <a href="https://npmcharts.com/compare/mcake-ui?minimal=true">
+      <img src="http://img.shields.io/npm/dm/mcake-ui.svg">
+    </a>
+</p>
 - Mcake UI诞生于2018年，是一个基于Vue的前端UI框架，致力于让Web开发变得更简单！
 - 作者：淡淡的月饼
 - *注：目前组件开发尚未完成，所以暂时无法正常使用，请耐心等待。。。*-
