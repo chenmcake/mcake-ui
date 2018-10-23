@@ -976,6 +976,11 @@ var prefixClass = 'm-i';
                 return Object(__WEBPACK_IMPORTED_MODULE_1__utils_base_js__["b" /* includes */])(['primary', 'success', 'info', 'warning', 'error', 'noble'], value);
             }
         },
+        // 旋转动画
+        spin: {
+            type: Boolean,
+            default: false
+        },
         // 颜色
         color: String,
         // 行高
@@ -987,7 +992,7 @@ var prefixClass = 'm-i';
         classes: function classes() {
             var _ref;
 
-            return [(_ref = {}, __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_ref, prefixClass + '-' + this.type, !!this.type), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_ref, 'm-text-' + this.theme, !!this.theme), _ref)];
+            return [(_ref = {}, __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_ref, prefixClass + '-' + this.type, !!this.type), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_ref, 'm-text-' + this.theme, !!this.theme), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_ref, prefixClass + '-spin-loading', this.spin), _ref)];
         },
 
         // 图标样式
@@ -1007,6 +1012,9 @@ var prefixClass = 'm-i';
             }
             return style;
         }
+    },
+    mounted: function mounted() {
+        console.log(this.spin);
     }
 });
 
@@ -8487,9 +8495,9 @@ var install = function install(Vue) {
 if (typeof window !== 'undefined' && window.Vue) {
     install(window.Vue);
 }
-
-var McakeUI = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign___default()(Components, {
-    // Version: '2.4.8',
+// 手动安装对象
+var McakeUI = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign___default()({}, Components, {
+    version: '1.0.0-alpha.1',
     install: install
 });
 // 所有组件
@@ -8700,7 +8708,7 @@ module.exports = function (KEY, exec) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_13_7_3_vue_loader_lib_selector_type_script_index_0_icon_vue__ = __webpack_require__(40);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__babel_loader_node_modules_vue_loader_13_7_3_vue_loader_lib_template_compiler_index_id_data_v_5931e8f5_hasScoped_false_buble_transforms_node_modules_vue_loader_13_7_3_vue_loader_lib_selector_type_template_index_0_icon_vue__ = __webpack_require__(127);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__babel_loader_node_modules_vue_loader_13_7_3_vue_loader_lib_template_compiler_index_id_data_v_43b7acec_hasScoped_false_buble_transforms_node_modules_vue_loader_13_7_3_vue_loader_lib_selector_type_template_index_0_icon_vue__ = __webpack_require__(127);
 var normalizeComponent = __webpack_require__(0)
 /* script */
 
@@ -8717,7 +8725,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_13_7_3_vue_loader_lib_selector_type_script_index_0_icon_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__babel_loader_node_modules_vue_loader_13_7_3_vue_loader_lib_template_compiler_index_id_data_v_5931e8f5_hasScoped_false_buble_transforms_node_modules_vue_loader_13_7_3_vue_loader_lib_selector_type_template_index_0_icon_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__babel_loader_node_modules_vue_loader_13_7_3_vue_loader_lib_template_compiler_index_id_data_v_43b7acec_hasScoped_false_buble_transforms_node_modules_vue_loader_13_7_3_vue_loader_lib_selector_type_template_index_0_icon_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
