@@ -1,6 +1,10 @@
 
 // 引入路径变量
 var path = require('path');
+// 引入webpack
+const webpack = require('webpack');
+// 项目配置文件
+const pkg = require('../package.json');
 // 加载路径方法
 function resolve (dir) {
     return path.join(__dirname, '..', dir)
@@ -69,4 +73,9 @@ module.exports = {
         'test': resolve('test')
       }
     },
+    plugins: [
+        new webpack.DefinePlugin({
+            'process.env.VERSION': `'${pkg.version}'`
+        }),
+    ]
 }

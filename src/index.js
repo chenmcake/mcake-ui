@@ -90,6 +90,7 @@ const install = function (Vue, opts = {}) {
         let item = Components[key];
         // 注册当前组件
         Vue.component(item.name, item);
+
     });
 };
 
@@ -97,9 +98,9 @@ const install = function (Vue, opts = {}) {
 if (typeof window !== 'undefined' && window.Vue) {
     install(window.Vue);
 }
-
-const McakeUI = Object.assign(Components, {
-    // Version: '2.4.8',
+// 手动安装对象
+const McakeUI = Object.assign({}, Components, {
+    version: process.env.VERSION,
     install
 });
 // 所有组件
