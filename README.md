@@ -18,10 +18,10 @@ npm install mcake-ui --save
 ```
 通过script标签 安装
 ```html
-<!-- import Vue.js -->
-<script src="//vuejs.org/js/vue.min.js"></script>
 <!-- import stylesheet -->
 <link href="dist/css/mcake-ui.min.css" rel="stylesheet">
+<!-- import Vue.js -->
+<script src="//vuejs.org/js/vue.min.js"></script>
 <!-- import McakeUI -->
 <script src="dist/mcake-ui.min.js"></script>
 ```
