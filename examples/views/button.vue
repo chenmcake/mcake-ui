@@ -247,6 +247,27 @@
             </div>
         </div> <!-- demo-item 结束 -->
 
+        <div class="demo-item demo-diy-item">
+            <div class="demo-item-tit">
+                <h3>加载中</h3>
+            </div>
+            <div class="demo-item-cont">
+                <div class="demo-item-box">
+                    <m-button type="primary" shape="fillet" loading>Loading...</m-button>
+                    <m-button type="primary" shape="fillet" :loading="loading_1" @click="setLoading">
+                        <span v-if="!loading_1">Click me!</span>
+                        <span v-else>Loading...</span>
+                    </m-button>
+                    <m-button type="primary" shape="fillet" icon="send-b" :loading="loading_2" @click="setLoading2">
+                        <span v-if="!loading_2">Send</span>
+                        <span v-else>Sending...</span>
+                    </m-button>
+                    <m-button shape="circle" bordered loading></m-button>
+                    <m-button shape="circle" type="primary" loading></m-button>
+                </div>
+            </div>
+        </div> <!-- demo-item 结束 -->
+
 
         <div class="demo-item demo-diy-item">
             <div class="demo-item-tit">
@@ -546,9 +567,21 @@
 </template>
 <script>
 export default {
+    data() {
+        return {
+            loading_1: false,
+            loading_2: false
+        }
+    },
     methods: {
         btnClick() {
             alert("ss")
+        },
+        setLoading() {
+            this.loading_1 = true;
+        },
+        setLoading2() {
+            this.loading_2 = true;
         }
     }
 }
