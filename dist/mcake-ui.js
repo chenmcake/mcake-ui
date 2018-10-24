@@ -1227,6 +1227,7 @@ exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
 //
 //
 //
+//
 
 // 公共方法
 
@@ -1277,6 +1278,8 @@ var prefixClass = 'm-btn';
         },
         // 是否禁止点击
         disabled: Boolean,
+        // 加载中
+        loading: Boolean,
         // 是否为长按钮
         long: {
             type: Boolean,
@@ -1300,7 +1303,7 @@ var prefixClass = 'm-btn';
 
             return [
             // 默认class
-            '' + prefixClass, (_ref = {}, __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_ref, prefixClass + '-' + this.size, !!this.size), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_ref, prefixClass + '-' + this.type, !!this.type), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_ref, prefixClass + '-' + this.shape, !!this.shape), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_ref, 'bordered', this.bordered), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_ref, prefixClass + '-long', this.long), _ref)];
+            '' + prefixClass, (_ref = {}, __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_ref, prefixClass + '-' + this.size, !!this.size), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_ref, prefixClass + '-' + this.type, !!this.type), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_ref, prefixClass + '-' + this.shape, !!this.shape), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_ref, prefixClass + '-long', this.long), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_ref, 'loading', this.loading != null && this.loading), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_ref, 'bordered', this.bordered), _ref)];
         }
     },
     // 实例创建完毕
@@ -9417,7 +9420,7 @@ __WEBPACK_IMPORTED_MODULE_0__button_vue__["a" /* default */].Group = __WEBPACK_I
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_13_7_3_vue_loader_lib_selector_type_script_index_0_button_vue__ = __webpack_require__(47);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__babel_loader_node_modules_vue_loader_13_7_3_vue_loader_lib_template_compiler_index_id_data_v_385ba3d4_hasScoped_false_buble_transforms_node_modules_vue_loader_13_7_3_vue_loader_lib_selector_type_template_index_0_button_vue__ = __webpack_require__(130);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__babel_loader_node_modules_vue_loader_13_7_3_vue_loader_lib_template_compiler_index_id_data_v_2f4a045e_hasScoped_false_buble_transforms_node_modules_vue_loader_13_7_3_vue_loader_lib_selector_type_template_index_0_button_vue__ = __webpack_require__(130);
 var normalizeComponent = __webpack_require__(0)
 /* script */
 
@@ -9434,7 +9437,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_13_7_3_vue_loader_lib_selector_type_script_index_0_button_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__babel_loader_node_modules_vue_loader_13_7_3_vue_loader_lib_template_compiler_index_id_data_v_385ba3d4_hasScoped_false_buble_transforms_node_modules_vue_loader_13_7_3_vue_loader_lib_selector_type_template_index_0_button_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__babel_loader_node_modules_vue_loader_13_7_3_vue_loader_lib_template_compiler_index_id_data_v_2f4a045e_hasScoped_false_buble_transforms_node_modules_vue_loader_13_7_3_vue_loader_lib_selector_type_template_index_0_button_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -9450,7 +9453,7 @@ var Component = normalizeComponent(
 
 "use strict";
 var render = function render() {
-  var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('button', { class: _vm.classes, attrs: { "type": _vm.htmlType, "disabled": _vm.disabled }, on: { "click": _vm.handleClick } }, [_vm.icon ? _c('m-icon', { attrs: { "type": _vm.icon } }) : _vm._e(), _vm._v(" "), _vm.showSlot ? _c('span', { ref: "slot" }, [_vm._t("default")], 2) : _vm._e()], 1);
+  var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('button', { class: _vm.classes, attrs: { "type": _vm.htmlType, "disabled": _vm.disabled || _vm.loading }, on: { "click": _vm.handleClick } }, [_vm.loading ? _c('m-icon', { attrs: { "type": "loading-2", "spin": "" } }) : _vm._e(), _vm._v(" "), _vm.icon && !_vm.loading ? _c('m-icon', { attrs: { "type": _vm.icon } }) : _vm._e(), _vm._v(" "), _vm.showSlot ? _c('span', { ref: "slot" }, [_vm._t("default")], 2) : _vm._e()], 1);
 };
 var staticRenderFns = [];
 var esExports = { render: render, staticRenderFns: staticRenderFns };

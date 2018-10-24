@@ -1,6 +1,7 @@
 <template>
-    <button :class="classes" :type="htmlType" :disabled="disabled" @click="handleClick">
-        <m-icon v-if="icon" :type="icon"></m-icon>
+    <button :class="classes" :type="htmlType" :disabled="disabled || loading" @click="handleClick">
+        <m-icon v-if="loading" type="loading-2" spin></m-icon>
+        <m-icon v-if="icon && !loading" :type="icon"></m-icon>
         <span v-if="showSlot" ref="slot"><slot></slot></span>
     </button>
 </template>
@@ -55,6 +56,8 @@ export default {
         },
         // 是否禁止点击
         disabled: Boolean,
+        // 加载中
+        loading: Boolean,
         // 是否为长按钮
         long: {
             type: Boolean,
@@ -84,10 +87,12 @@ export default {
                     [`${prefixClass}-${this.type}`]: !!this.type,
                     // 形状
                     [`${prefixClass}-${this.shape}`]: !!this.shape,
-                    // 是否有边框
-                    'bordered': this.bordered,
                     // 是否为长按钮
                     [`${prefixClass}-long`]: this.long,
+                    // 加载中
+                    'loading': this.loading != null && this.loading,
+                    // 是否有边框
+                    'bordered': this.bordered,
                 }
             ];
         },

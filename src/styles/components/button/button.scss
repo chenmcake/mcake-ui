@@ -60,6 +60,11 @@ $btn-group-prefix: #{$btn-prefix}-group;
             border-color: lighten($border-color, 5%);
         }
     }
+
+    // 加载中
+    &.loading {
+        pointer-events: none;
+    }
 }
 
 // 按钮尺寸 和 形状
