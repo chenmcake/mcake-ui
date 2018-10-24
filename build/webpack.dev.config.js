@@ -19,12 +19,12 @@ var FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 module.exports = merge(webpackBaseConfig, {
     // 入口
     entry: {
-        main: './test/main',
+        main: './examples/main',
         vendors: ['vue', 'vue-router']
     },
     // 输出
     output: {
-        path: path.join(__dirname, '../test/dist'),
+        path: path.join(__dirname, '../examples/dist'),
         publicPath: '',
         filename: '[name].js',
         chunkFilename: '[name].chunk.js'
@@ -40,9 +40,9 @@ module.exports = merge(webpackBaseConfig, {
         new HtmlWebpackPlugin({
             inject: true,
             // 输出文件
-            filename: path.join(__dirname, '../test/dist/index.html'),
+            filename: path.join(__dirname, '../examples/dist/index.html'),
             // 模板文件
-            template: path.join(__dirname, '../test/index.html')
+            template: path.join(__dirname, '../examples/index.html')
         }),
         // 错误提示
         new FriendlyErrorsPlugin()

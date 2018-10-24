@@ -8,7 +8,7 @@
     "src"
   ],
   "scripts": {
-    "dev": "webpack-dev-server --content-base test/ --open --inline --hot --compress --port 7070 --config build/webpack.dev.config.js",
+    "dev": "webpack-dev-server --content-base examples/ --open --inline --hot --compress --port 7070 --config build/webpack.dev.config.js",
     "build": "npm run build:style && npm run build:dev && npm run build:prod",
     "build:style": "gulp --gulpfile build/build-style.js",
     "build:dev": "webpack --config build/webpack.build.dev.config.js",
