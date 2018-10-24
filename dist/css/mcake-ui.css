@@ -1,9 +1,9 @@
 @charset "UTF-8";
 /*!
- * Mcake UI v1.0.0
+ * Mcake UI v1.0.0-alpha.1
  * author：淡淡的月饼
  * Create time：2018.5.1
- * Update time：2018.10.12
+ * Update time：2018.10.24
  */
 *,
 *:before,
@@ -858,8 +858,8 @@ a[disabled] {
 /* 字体图标 */
 @font-face {
   font-family: 'McakeFont';
-  src: url("./fonts/McakeFont.eot?v=1.0.0-alpha.0");
-  src: url("./fonts/McakeFont.eot?#iefix&v=1.0.0-alpha.0") format("embedded-opentype"), url("./fonts/McakeFont.ttf?v=1.0.0-alpha.0") format("truetype"), url("./fonts/McakeFont.woff?v=1.0.0-alpha.0") format("woff"), url("./fonts/McakeFont.svg?v=1.0.0-alpha.0#McakeFont") format("svg");
+  src: url("./fonts/McakeFont.eot?v=1.0.0-alpha.1");
+  src: url("./fonts/McakeFont.eot?#iefix&v=1.0.0-alpha.1") format("embedded-opentype"), url("./fonts/McakeFont.ttf?v=1.0.0-alpha.1") format("truetype"), url("./fonts/McakeFont.woff?v=1.0.0-alpha.1") format("woff"), url("./fonts/McakeFont.svg?v=1.0.0-alpha.1#McakeFont") format("svg");
   font-weight: normal;
   font-style: normal;
 }
