@@ -12,6 +12,9 @@
     <a href="https://npmcharts.com/compare/mcake-ui?minimal=true">
       <img src="http://img.shields.io/npm/dm/mcake-ui.svg">
     </a>
+    <a href="https://github.com/mcakeui/mcake-ui/stargazers">
+      <img src="https://img.shields.io/github/stars/mcakeui/mcake-ui.svg?style=flat-square">
+    </a>
 </p>
 <p>
   <ul>
