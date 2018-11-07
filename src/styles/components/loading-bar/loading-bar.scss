@@ -1,0 +1,22 @@
+/* 加载进度条 */
+$loading-bar-prefix                   : #{$css-prefix}-loading-bar;
+
+// 主容器
+.#{$loading-bar-prefix} {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: $zindex-loading-bar;
+}
+// 进度条本身
+.#{$loading-bar-prefix}-inner {
+    transition: width $loading-bar-transition-time $loading-bar-transition-function;
+}
+// 颜色
+.#{$loading-bar-prefix}-inner-primary {
+    background-color: $loading-bar-inner-primary;
+}
+.#{$loading-bar-prefix}-inner-error {
+    background-color: $loading-bar-inner-error;
+}

@@ -21,6 +21,8 @@ import Switch from './components/switch';
 import Rate from './components/rate';
 // 进度条
 import Progress from './components/progress';
+// 加载进度条
+import LoadingBar from './components/loading-bar';
 // 警告提示
 import Alert from './components/alert';
 // 文字提示
@@ -47,6 +49,7 @@ import Dropdown from './components/dropdown';
 import Crumb from './components/crumb';
 // 文字省略
 import Ellipsis from './components/ellipsis';
+
 
 // McakeUI组件集
 const Components = {
@@ -90,8 +93,10 @@ const install = function (Vue, opts = {}) {
         let item = Components[key];
         // 注册当前组件
         Vue.component(item.name, item);
-
     });
+
+    // 实例方法
+    Vue.prototype.$Loading = LoadingBar;
 };
 
 // 自动安装
@@ -101,6 +106,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 // 手动安装对象
 const McakeUI = Object.assign({}, Components, {
     version: process.env.VERSION,
+    LoadingBar,
     install
 });
 // 所有组件

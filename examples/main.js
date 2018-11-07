@@ -7,6 +7,11 @@ import McakeUI from '@/index';
 // 注册组件
 Vue.use(McakeUI);
 
+// setTimeout(() => {
+//     console.log("开始加载")
+//     McakeUI.LoadingBar.start();
+// }, 800)
+
 window.Vue = Vue;
 // 初始化程序
 new Vue({

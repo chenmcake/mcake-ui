@@ -69,6 +69,10 @@ export const components = [
                 name: 'progress'
             },
             {
+                title: 'LoadingBar 加载进度条',
+                name: 'loading-bar'
+            },
+            {
                 title: 'Alert 警告提示',
                 name: 'alert'
             },

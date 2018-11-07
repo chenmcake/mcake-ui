@@ -18,6 +18,7 @@
 // - select            选择器
 // - rate              评分
 // - progress          进度条
+// - loading-bar       加载进度条
 // - alert             警告提示
 // - tooltip           文字提示
 // - badge             徽章
@@ -70,6 +71,7 @@ $border-radius-ratio                     : 0.14;
 $zindex-badge                            : 10;
 $zindex-select-dropdown                  : 998;
 $zindex-popper                           : 1024;
+$zindex-loading-bar                      : 2000;
 
 // colors 颜色主题
 $color-primary                           : #006AFF;
@@ -176,6 +178,13 @@ $rate-icon-size                          : 20px;
 
 // progress 进度条
 $progress-bar-bg                         : #F3F3F3;
+
+// loading-bar 加载进度条
+$loading-bar-transition-time             : $transition-time;
+$loading-bar-transition-function         : linear;
+$loading-bar-inner-primary         : $color-primary;
+$loading-bar-inner-error           : $color-error;
+
 
 // alert 警告提示
 $alert-padding-x                         : $padding-x-default;
