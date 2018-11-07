@@ -4901,6 +4901,28 @@ a[disabled] {
   font-size: 60px;
 }
 
+/* 加载进度条 */
+.m-loading-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2000;
+}
+
+.m-loading-bar-inner {
+  -webkit-transition: width 0.2s linear;
+  transition: width 0.2s linear;
+}
+
+.m-loading-bar-inner-primary {
+  background-color: #006AFF;
+}
+
+.m-loading-bar-inner-error {
+  background-color: #F74342;
+}
+
 /* 警告提示 */
 .m-alert {
   position: relative;
