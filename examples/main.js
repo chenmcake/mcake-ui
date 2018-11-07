@@ -12,6 +12,9 @@ Vue.use(McakeUI);
 //     McakeUI.LoadingBar.start();
 // }, 800)
 
+console.log(McakeUI);
+console.log('目前一共：' + (Object.keys(McakeUI).length - 1) + '个组件');
+
 window.Vue = Vue;
 // 初始化程序
 new Vue({

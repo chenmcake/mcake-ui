@@ -109,9 +109,6 @@ const McakeUI = Object.assign({}, Components, {
     LoadingBar,
     install
 });
-// 所有组件
-console.log(McakeUI);
-console.log('目前一共：' + (Object.keys(McakeUI).length - 1) + '个组件');
 
 // 输出
 export default McakeUI;
