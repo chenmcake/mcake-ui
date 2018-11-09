@@ -80,9 +80,6 @@ export default {
         alone() {
             return this.$slots.default === undefined;
         }
-    },
-    mounted() {},
-    methods: {
-    },
+    }
 };
 </script>
