@@ -133,6 +133,10 @@ export const components = [
         title: 'Other 其他',
         children: [
             {
+                title: 'BackTop 返回顶部',
+                name: 'back-top'
+            },
+            {
                 title: 'Ellipsis 文字省略',
                 name: 'ellipsis'
             }

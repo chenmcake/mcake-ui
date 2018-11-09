@@ -47,6 +47,8 @@ import Divider from './components/divider';
 import Dropdown from './components/dropdown';
 // 面包屑
 import Crumb from './components/crumb';
+// 返回顶部
+import BackTop from './components/back-top';
 // 文字省略
 import Ellipsis from './components/ellipsis';
 
@@ -84,6 +86,7 @@ const Components = {
     DropdownItem: Dropdown.Item,
     Crumb,
     CrumbItem: Crumb.Item,
+    BackTop,
     Ellipsis,
 };
 // 组件安装程序
