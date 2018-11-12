@@ -46,10 +46,14 @@
     }
 }
 
+.hide {
+    display: none;
+}
+
 </style>
 <template>
     <div class="home clear">
-        <div class="left-nav">
+        <div class="left-nav hide">
             <ul>
                 <li v-for="(item, i) in components">
                     {{item.title}}
@@ -63,7 +67,7 @@
         <div class="right-content">
             <component v-if="showPage" :is="showPage"></component>
         </div>
-        <span class="home-line"></span>
+        <span class="home-line hide"></span>
     </div> <!-- home 结束 -->
 </template>
 <script>

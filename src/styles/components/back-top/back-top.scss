@@ -1,0 +1,20 @@
+/* 返回顶部 */
+$back-top-prefix                   : #{$css-prefix}-back-top;
+
+// 主容器
+.#{$back-top-prefix} {
+    position: fixed;
+    z-index: $zindex-back-top;
+    cursor: pointer;
+}
+
+// 按钮
+.#{$back-top-prefix}-inner {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 40px;
+    border: 1px solid $border-color;
+    border-radius: 50%;
+}

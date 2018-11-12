@@ -28,7 +28,7 @@
 
 </style>
 <template>
-    <div class="demo-wrap" style="height: 1000px">
+    <div class="demo-wrap" style="height: 2000px">
         <p>哈哈哈</p>
 
         <m-back-top></m-back-top>
