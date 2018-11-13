@@ -5973,3 +5973,23 @@ a[disabled] {
 .m-crumb .m-crumb-item:last-child .m-crumb-item-separator {
   display: none;
 }
+
+/* 返回顶部 */
+.m-back-top {
+  position: fixed;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.m-back-top-inner {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 40px;
+  color: #006AFF;
+  border: 1px solid #CCCCCC;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+}
