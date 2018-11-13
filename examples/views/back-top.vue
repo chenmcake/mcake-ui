@@ -31,7 +31,7 @@
     <div class="demo-wrap" style="height: 2000px">
         <p>哈哈哈</p>
 
-        <m-back-top></m-back-top>
+        <m-back-top :height="200"></m-back-top>
     </div>
 </template>
 <script>

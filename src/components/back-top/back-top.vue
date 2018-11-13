@@ -1,5 +1,5 @@
 <template>
-    <div :class="wrapClasses" :style="wrapStyles" @click="backTop">
+    <div v-show="show" :class="wrapClasses" :style="wrapStyles" @click="backTop">
         <slot>
             <div class="m-back-top-inner">
                 <i class="m-i-top-l"></i>
@@ -9,6 +9,8 @@
 </template>
 
 <script>
+// 引入dom操作方法
+import { on , off, scrollTop } from '../../utils/dom.js';
 
 // 主容器 class
 const wrapClass = 'm-back-top';
@@ -17,7 +19,7 @@ const wrapClass = 'm-back-top';
 export default {
     name: 'MBackTop',
     props: {
-        // 显示返回顶部按钮滚动条高度
+        // 滚动条距离顶部多少时显示
         height: {
             type: Number,
             default: 500
@@ -55,10 +57,26 @@ export default {
             }
         }
     },
-    mounted() {},
+    mounted() {
+        on(window, 'scroll', this.handleScroll);
+        on(window, 'resize', this.handleScroll);
+    },
+    beforeDestroy() {
+        off(window, 'scroll', this.handleScroll);
+        off(window, 'resize', this.handleScroll);
+    },
     methods: {
+        handleScroll() {
+            this.show = window.pageYOffset >= this.height;
+        },
+        // 处理返回顶部点击事件
         backTop() {
-
+            // 获取滚动条高度
+            const top = Math.max(document.documentElement.scrollTop, document.body.scrollTop);
+            // 调用返回顶部方法
+            scrollTop(window, top, 0, this.duration);
+            // 提交点击事件
+            this.$emit('on-click');
         }
     },
 };
