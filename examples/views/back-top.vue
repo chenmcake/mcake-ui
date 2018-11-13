@@ -31,7 +31,13 @@
     <div class="demo-wrap" style="height: 2000px">
         <p>哈哈哈</p>
 
-        <m-back-top :height="200"></m-back-top>
+        <!-- 默认 -->
+        <m-back-top></m-back-top>
+        <!-- 自定义 -->
+        <m-back-top :height="100" :bottom="150">
+            <m-button type="info" shape="fillet">返回顶部</m-button>
+        </m-back-top>
+
     </div>
 </template>
 <script>
