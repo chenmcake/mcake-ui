@@ -1,11 +1,13 @@
 <template>
-    <div v-show="show" :class="wrapClasses" :style="wrapStyles" @click="backTop">
-        <slot>
-            <div class="m-back-top-inner">
-                <i class="m-i-top-l"></i>
-            </div>
-        </slot>
-    </div>
+    <transition name="m-fade">
+        <div v-show="show" :class="wrapClasses" :style="wrapStyles" @click="backTop">
+            <slot>
+                <div class="m-back-top-inner">
+                    <i class="m-i-top-l"></i>
+                </div>
+            </slot>
+        </div>
+    </transition>
 </template>
 
 <script>
@@ -32,7 +34,7 @@ export default {
         // 按钮距离右侧位置
         right: {
             type: Number,
-            default: 50
+            default: 30
         },
         // 滚动动画时间
         duration: {
