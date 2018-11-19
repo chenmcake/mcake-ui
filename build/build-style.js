@@ -38,7 +38,7 @@ gulp.task('css', function () {
 // 拷贝字体文件
 gulp.task('fonts', function () {
     gulp.src('../src/styles/fonts/*.*')
-        .pipe(gulp.dest('../dist/fonts'));
+        .pipe(gulp.dest('../dist/css/fonts'));
 });
 
 gulp.task('default', ['css', 'fonts']);
