@@ -17,6 +17,8 @@ import Radio from './components/radio';
 import Checkbox from './components/checkbox';
 // 开关
 import Switch from './components/switch';
+// 滑块
+import Slider from './components/slider';
 // 评分
 import Rate from './components/rate';
 // 进度条
@@ -67,6 +69,7 @@ const Components = {
     Checkbox,
     CheckboxGroup: Checkbox.Group,
     Switch,
+    Slider,
     Rate,
     Progress,
     Alert,

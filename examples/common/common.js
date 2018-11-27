@@ -55,6 +55,10 @@ export const components = [
                 name: 'switch'
             },
             {
+                title: 'Slider 滑块',
+                name: 'slider'
+            },
+            {
                 title: 'Rate 评分',
                 name: 'rate'
             },
