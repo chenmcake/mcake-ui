@@ -1,0 +1,9 @@
+/* 滑块 */
+$slider-prefix                   : #{$css-prefix}-slider;
+
+// 主容器
+.#{$slider-prefix} {
+    position: relative;
+    display: inline-table;
+    vertical-align: middle;
+}

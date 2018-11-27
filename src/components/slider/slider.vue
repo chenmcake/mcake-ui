@@ -32,6 +32,11 @@ export default {
             type: String,
             default: '200px'
         },
+        // 显示数字输入框
+        showInput: {
+            type: Boolean,
+            default: false
+        },
     },
     data() {
         return {
@@ -39,10 +44,15 @@ export default {
         }
     },
     computed: {
+        // 主容器class
         wrapClasses() {
             return [
                 `${prefixClass}`,
                 {
+                    // 是否为垂直显示
+                    [`${prefixClass}-vertical`]: this.vertical,
+                    // 显示数字输入框
+                    [`${prefixClass}-with-input`]: this.showInput
                 }
             ];
         },
